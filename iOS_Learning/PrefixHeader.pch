@@ -1,0 +1,67 @@
+//
+//  PrefixHeader.pch
+//  iOS_Learning
+//
+//  Created by liuningfei on 05/12/2017.
+//  Copyright © 2017 interstellar. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// 常用常量
+#define kLNFKeyWindowTag 2017 // 主窗口
+
+// 常用字体
+#define kLNFSystemFont10 [UIFont systemFontOfSize:10]
+#define kLNFSystemFont11 [UIFont systemFontOfSize:11]
+#define kLNFSystemFont12 [UIFont systemFontOfSize:12]
+#define kLNFSystemFont13 [UIFont systemFontOfSize:13]
+#define kLNFSystemFont14 [UIFont systemFontOfSize:14]
+#define kLNFSystemFont15 [UIFont systemFontOfSize:15]
+#define kLNFSystemFont16 [UIFont systemFontOfSize:16]
+#define kLNFSystemFont17 [UIFont systemFontOfSize:17]
+#define kLNFSystemFont18 [UIFont systemFontOfSize:18]
+#define kLNFSystemFont19 [UIFont systemFontOfSize:19]
+#define kLNFSystemFont20 [UIFont systemFontOfSize:20]
+#define kLNFSystemFont24 [UIFont systemFontOfSize:24]
+#define kLNFSystemFont25 [UIFont systemFontOfSize:25]
+#define kLNFSystemFont26 [UIFont systemFontOfSize:26]
+
+// 常用UI颜色
+#define kLNFThemeBlueColor  kLNFColorWithHex(0x0095fc)
+#define kLNFSeperatorLineColor       kLNFColorWithHex(0xdadada) // 分割线颜色 边框颜色
+#define kLNFContentViewBorderColor   kLNFColorWithHex(0xdadada) //边框颜色
+#define kLNFSeperatorViewColor       kLNFColorWithHex(0xf4f4f4) // 间隔View颜色
+#define kLNFCommonGreenColor     kLNFColorWithHex(0x23ae51) // 绿色
+#define kLNFCommonRedColor       kLNFColorWithHex(0xe30404) // 红色
+
+// 获取颜色
+#define kLNFRGBColor(R,G,B) [UIColor colorWithRed:R / 255.0 green:G / 255.0 blue:B / 255.0 alpha:1]
+#define kLNFRGBSameColor(S) [UIColor colorWithRed:S / 255.0 green:S / 255.0 blue:S / 255.0 alpha:1]
+#define kLNFColorWithHex(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0f]
+#define kLNFTableViewSeperatorColor  [UIColor colorWithRed:0.783922 green:0.780392 blue:0.8 alpha:1] // 系统表视图间隔线
+#define kLNFTableViewDetailTextLabelTextColor  [UIColor colorWithRed:0.556863 green:0.556863 blue:0.576471 alpha:1] // 系统cell右边文字灰色
+
+// 自定义LOG打印
+#ifdef DEBUG
+#define kLNFLog(format,...) NSLog(@"%s:%zd %s: " format, __FILE__, __LINE__, __FUNCTION__, __VA_ARGS__)
+#else
+#define kLNFLog(...)
+#endif
+
+// 屏幕宽高
+#define kLNFScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kLNFScreenHeight [UIScreen mainScreen].bounds.size.height
+
+// 弱引用
+#define kLNFWeakReference(referenceName, obj) __weak typeof(obj) referenceName = obj
+#define kLNFWeakSelf kLNFWeakReference(weakSelf, self)
+
+#define kLNFRequestBaseUrl           @"http://localhost:8080"
+#define kLNFCustomRequestUrlkey      @"CustomRequestUrl"// 目前设置的自定义接口网址
+
+#endif /* PrefixHeader_pch */
