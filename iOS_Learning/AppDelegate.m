@@ -21,7 +21,13 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     self.window.tag = kLNFKeyWindowTag;
-    self.window.rootViewController = [UIViewController new];
+    
+    // 电池条颜色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    // 设置根视图
+    [LNFAppHelper setRootViewController];
+    
     kLNFLog(@"---->>>> %@", NSHomeDirectory());
     
     return YES;

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>titleName</key>
+		<string>修改BaseUrl</string>
+		<key>vcName</key>
+		<string>LNFChangeBaseUrlVc</string>
+	</dict>
+	<dict>
+		<key>titleName</key>
+		<string>身份地区查询</string>
+		<key>vcName</key>
+		<string>LNFIdCardNumberSearchVc</string>
+	</dict>
+	<dict>
+		<key>titleName</key>
+		<string>文件上传</string>
+		<key>vcName</key>
+		<string>LNFUploadFileJavaVc</string>
+	</dict>
+	<dict>
+		<key>titleName</key>
+		<string>员工列表</string>
+		<key>vcName</key>
+		<string>LNFEmployeeListJavaVc</string>
+	</dict>
+	<dict>
+		<key>titleName</key>
+		<string>Html列表</string>
+		<key>vcName</key>
+		<string>LNFHtmlStrListVc</string>
+	</dict>
+	<dict>
+		<key>titleName</key>
+		<string>WebView浏览</string>
+		<key>vcName</key>
+		<string>LNFWebViewVc</string>
+	</dict>
+	<dict>
+		<key>titleName</key>
+		<string>正则表达式</string>
+		<key>vcName</key>
+		<string>LNFRegularExpressionVc</string>
+	</dict>
+	<dict>
+		<key>titleName</key>
+		<string>文件管理</string>
+		<key>vcName</key>
+		<string>LNFFileManagerVc</string>
+	</dict>
+	<dict>
+		<key>titleName</key>
+		<string>数据库管理</string>
+		<key>vcName</key>
+		<string>LNFDataBaseManagerVc</string>
+	</dict>
+	<dict>
+		<key>titleName</key>
+		<string>系统通讯录访问</string>
+		<key>vcName</key>
+		<string>LNFContactFrameworkVc</string>
+	</dict>
+</array>
+</plist>
