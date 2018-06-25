@@ -8,7 +8,6 @@
 
 #import "LNFChangeBaseUrlVc.h"
 
-#define kLNFUITableViewCellIdentifier       @"UITableViewCell"
 @interface LNFChangeBaseUrlVc () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSArray<NSString *> *urlList;
@@ -74,7 +73,7 @@
         }], nil] show];
     }];
     
-    LNFTableViewDataSourceHelper *dataSourceHelper = [[LNFTableViewDataSourceHelper alloc] initWithItems:self.urlList cellIdentifier:kLNFUITableViewCellIdentifier configureCellBlock:cellConfigureBlock];
+    LNFTableViewDataSourceHelper *dataSourceHelper = [[LNFTableViewDataSourceHelper alloc] initWithItems:self.urlList cellIdentifier:kLNFUITableViewCellIndetifier configureCellBlock:cellConfigureBlock];
     self.dataSourceHelper = dataSourceHelper;
     
     LNFTableViewDelegateHelper *delegateHelper = [[LNFTableViewDelegateHelper alloc] init];
@@ -89,7 +88,7 @@
     urlListTableView.dataSource = dataSourceHelper;
     urlListTableView.delegate = delegateHelper;
     urlListTableView.tableFooterView = [UIView new];
-    [urlListTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kLNFUITableViewCellIdentifier];
+    [urlListTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kLNFUITableViewCellIndetifier];
     [urlListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.and.top.and.bottom.mas_equalTo(self.view);
     }];

@@ -7,13 +7,14 @@
 //
 
 #import "LNFMainModuleVc.h"
-#import "LNFMainModuleListCell.h"
+#import "LNFChangeBaseUrlVc.h"
 
-#define kLNFMainModuleListCellIdentifier @"LNFMainModuleListCell"
-@interface LNFMainModuleVc () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+#define kLNFMainItemName_ChangeBaseUrl             @"Change BaseUrl"
+@interface LNFMainModuleVc ()
 
-@property (nonatomic, strong) UICollectionView *mainModuleCollectionView;
-@property (nonatomic, strong) NSArray *vcList;
+@property (nonatomic, strong) LNFTableViewDataSourceHelper *dataSourceHelper;
+@property (nonatomic, strong) LNFTableViewDelegateHelper *delegateHepler;
+@property (nonatomic, strong) UITableView *mainItemTable;
 
 @end
 
@@ -30,69 +31,45 @@
 {
     self.navigationItem.title = @"效果";
     self.view.backgroundColor = [UIColor whiteColor];
+    kLNFWeakSelf;
     
-    // 添加集合视图
-    NSArray *mainModuleVcList = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:kLNFMainModuleInfoPlistFileName ofType:nil]];
-    self.vcList = mainModuleVcList;
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    UICollectionView *mainModuleCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-    [self.view addSubview:mainModuleCollectionView];
-    mainModuleCollectionView.backgroundColor = [UIColor whiteColor];
-    mainModuleCollectionView.dataSource = self;
-    mainModuleCollectionView.delegate = self;
-    [mainModuleCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.and.bottom.and.right.mas_equalTo(self.view);
+    NSArray *itemList = @[kLNFMainItemName_ChangeBaseUrl];
+    TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
+        cell.textLabel.text = item;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    };
+    TableViewDidSelectRowConfigureBlock didSelectRowBlock = ^(NSIndexPath *indexPath) {
+        [weakSelf didSelectCellWithItemName:weakSelf.dataSourceHelper.items[indexPath.row]];
+    };
+    LNFTableViewDataSourceHelper *dataSourceHelper = [[LNFTableViewDataSourceHelper alloc] initWithItems:itemList cellIdentifier:kLNFUITableViewCellIndetifier configureCellBlock:cellConfigureBlock];
+    self.dataSourceHelper = dataSourceHelper;
+    
+    LNFTableViewDelegateHelper *delegateHepler = [[LNFTableViewDelegateHelper alloc] init];
+    delegateHepler.cellHeight = 44;
+    delegateHepler.didSelectRowBlock = didSelectRowBlock;
+    self.delegateHepler = delegateHepler;
+    
+    UITableView *mainItemTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    [self.view addSubview:mainItemTable];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kLNFScreenWidth, 0)];
+    mainItemTable.tableHeaderView = headerView;
+    mainItemTable.dataSource = dataSourceHelper;
+    mainItemTable.delegate = delegateHepler;
+    mainItemTable.tableFooterView = [UIView new];
+    [mainItemTable registerClass:[UITableViewCell class] forCellReuseIdentifier:kLNFUITableViewCellIndetifier];
+    [mainItemTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.and.top.and.bottom.mas_equalTo(self.view);
     }];
-    self.mainModuleCollectionView = mainModuleCollectionView;
-    
-    // 注册cell
-    [self.mainModuleCollectionView registerClass:[LNFMainModuleListCell class] forCellWithReuseIdentifier:kLNFMainModuleListCellIdentifier];
-    
+    self.mainItemTable = mainItemTable;
 }
-
-#pragma mark - UICollectionViewDataSource
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+#pragma mark - Private Method
+- (void)didSelectCellWithItemName:(NSString *)itemName
 {
-    return self.vcList.count;
-}
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    LNFMainModuleListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kLNFMainModuleListCellIdentifier forIndexPath:indexPath];
-    cell.titleName = self.vcList[indexPath.row][@"titleName"];
-    return cell;
-}
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
-#pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *vcName = self.vcList[indexPath.row][@"vcName"];
-    if (vcName.length) {
-        UIViewController *vc = [[NSClassFromString(vcName) alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+    if ([itemName isEqualToString:kLNFMainItemName_ChangeBaseUrl]) {
+        LNFChangeBaseUrlVc *changeUrlVc = [[LNFChangeBaseUrlVc alloc] init];
+        changeUrlVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:changeUrlVc animated:YES];
     }
-}
-
-#pragma mark - UICollectionViewDelegateFlowLayout
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake(kLNFScreenWidth, 44);
-}
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(0, 0, 0, 0);
-}
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 0;
-}
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 0;
 }
 - (void)didReceiveMemoryWarning
 {

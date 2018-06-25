@@ -25,15 +25,12 @@
 		EA31139B1FD6499300BF1A77 /* common_loadingHud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA3113911FD6499300BF1A77 /* common_loadingHud@2x.png */; };
 		EA3113A01FD64A9300BF1A77 /* LNFNavigationVc.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31139F1FD64A9300BF1A77 /* LNFNavigationVc.m */; };
 		EA3113A31FD64B6000BF1A77 /* LNFMainModuleVc.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3113A21FD64B6000BF1A77 /* LNFMainModuleVc.m */; };
-		EA3113A61FD64D3400BF1A77 /* LNFMainModuleListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3113A51FD64D3400BF1A77 /* LNFMainModuleListCell.m */; };
-		EA3113A91FD64DE100BF1A77 /* MainModule.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3113A81FD64DE100BF1A77 /* MainModule.plist */; };
 		EA3113AC1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3113AB1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m */; };
 		EA3113B51FD660A900BF1A77 /* LNFButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3113B21FD660A900BF1A77 /* LNFButtonItem.m */; };
 		EA3113B61FD660A900BF1A77 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3113B41FD660A900BF1A77 /* UIAlertView+Blocks.m */; };
 		EA3113BA1FD6611700BF1A77 /* BaseUrl.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3113B91FD6611700BF1A77 /* BaseUrl.plist */; };
 		EA3113BF1FD6637800BF1A77 /* LNFTableViewDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3113BD1FD6637800BF1A77 /* LNFTableViewDataSourceHelper.m */; };
 		EA3113C01FD6637800BF1A77 /* LNFTableViewDelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3113BE1FD6637800BF1A77 /* LNFTableViewDelegateHelper.m */; };
-		EA3113C31FD6682000BF1A77 /* LNFIdCardNumberSearchVc.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3113C21FD6682000BF1A77 /* LNFIdCardNumberSearchVc.m */; };
 		EA3113C61FD6684600BF1A77 /* LNFIdCardNumberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3113C51FD6684600BF1A77 /* LNFIdCardNumberModel.m */; };
 		F6CF64F857EA8DA87180E926 /* libPods-iOS_Learning.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 623EE43C053BAEBC7FC96CF4 /* libPods-iOS_Learning.a */; };
 /* End PBXBuildFile section */
@@ -69,9 +66,6 @@
 		EA31139F1FD64A9300BF1A77 /* LNFNavigationVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFNavigationVc.m; sourceTree = "<group>"; };
 		EA3113A11FD64B6000BF1A77 /* LNFMainModuleVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFMainModuleVc.h; sourceTree = "<group>"; };
 		EA3113A21FD64B6000BF1A77 /* LNFMainModuleVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFMainModuleVc.m; sourceTree = "<group>"; };
-		EA3113A41FD64D3400BF1A77 /* LNFMainModuleListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFMainModuleListCell.h; sourceTree = "<group>"; };
-		EA3113A51FD64D3400BF1A77 /* LNFMainModuleListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFMainModuleListCell.m; sourceTree = "<group>"; };
-		EA3113A81FD64DE100BF1A77 /* MainModule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MainModule.plist; sourceTree = "<group>"; };
 		EA3113AA1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFChangeBaseUrlVc.h; sourceTree = "<group>"; };
 		EA3113AB1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFChangeBaseUrlVc.m; sourceTree = "<group>"; };
 		EA3113AD1FD6519F00BF1A77 /* LNFUserDefultsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFUserDefultsHeader.h; sourceTree = "<group>"; };
@@ -84,8 +78,6 @@
 		EA3113BC1FD6637800BF1A77 /* LNFTableViewDelegateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNFTableViewDelegateHelper.h; sourceTree = "<group>"; };
 		EA3113BD1FD6637800BF1A77 /* LNFTableViewDataSourceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNFTableViewDataSourceHelper.m; sourceTree = "<group>"; };
 		EA3113BE1FD6637800BF1A77 /* LNFTableViewDelegateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNFTableViewDelegateHelper.m; sourceTree = "<group>"; };
-		EA3113C11FD6682000BF1A77 /* LNFIdCardNumberSearchVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFIdCardNumberSearchVc.h; sourceTree = "<group>"; };
-		EA3113C21FD6682000BF1A77 /* LNFIdCardNumberSearchVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFIdCardNumberSearchVc.m; sourceTree = "<group>"; };
 		EA3113C41FD6684600BF1A77 /* LNFIdCardNumberModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFIdCardNumberModel.h; sourceTree = "<group>"; };
 		EA3113C51FD6684600BF1A77 /* LNFIdCardNumberModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFIdCardNumberModel.m; sourceTree = "<group>"; };
 		F0F56A4E8AF4EDA8F8F69B87 /* Pods-iOS_Learning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Learning.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Learning/Pods-iOS_Learning.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,8 +163,6 @@
 				EA3113A21FD64B6000BF1A77 /* LNFMainModuleVc.m */,
 				EA3113AA1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.h */,
 				EA3113AB1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m */,
-				EA3113C11FD6682000BF1A77 /* LNFIdCardNumberSearchVc.h */,
-				EA3113C21FD6682000BF1A77 /* LNFIdCardNumberSearchVc.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,8 +186,6 @@
 		EA3113781FD63BE900BF1A77 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EA3113A41FD64D3400BF1A77 /* LNFMainModuleListCell.h */,
-				EA3113A51FD64D3400BF1A77 /* LNFMainModuleListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -278,7 +266,6 @@
 		EA3113A71FD64DD900BF1A77 /* PlistFiles */ = {
 			isa = PBXGroup;
 			children = (
-				EA3113A81FD64DE100BF1A77 /* MainModule.plist */,
 				EA3113B91FD6611700BF1A77 /* BaseUrl.plist */,
 			);
 			path = PlistFiles;
@@ -374,7 +361,6 @@
 				EA3113941FD6499300BF1A77 /* check_notchoose@3x.png in Resources */,
 				EA3113BA1FD6611700BF1A77 /* BaseUrl.plist in Resources */,
 				EA31139A1FD6499300BF1A77 /* check_choose@3x.png in Resources */,
-				EA3113A91FD64DE100BF1A77 /* MainModule.plist in Resources */,
 				EA3113981FD6499300BF1A77 /* common_navBar_back_icon@3x.png in Resources */,
 				EA3113951FD6499300BF1A77 /* common_check_notchoose@3x.png in Resources */,
 			);
@@ -436,11 +422,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA3113C01FD6637800BF1A77 /* LNFTableViewDelegateHelper.m in Sources */,
-				EA3113C31FD6682000BF1A77 /* LNFIdCardNumberSearchVc.m in Sources */,
 				EA3113C61FD6684600BF1A77 /* LNFIdCardNumberModel.m in Sources */,
 				EA3113841FD647C300BF1A77 /* LNFTabBarController.m in Sources */,
 				EA3113B51FD660A900BF1A77 /* LNFButtonItem.m in Sources */,
-				EA3113A61FD64D3400BF1A77 /* LNFMainModuleListCell.m in Sources */,
 				EA31136E1FD63BCB00BF1A77 /* main.m in Sources */,
 				EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */,
 				EA3113871FD6483E00BF1A77 /* LNFBaseVc.m in Sources */,
