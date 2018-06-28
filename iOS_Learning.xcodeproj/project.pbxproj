@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47B4AC7D20E4B9EB005AD68B /* LNFPasswordGenerateVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */; };
+		47B4AC7E20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */; };
 		EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31135F1FD63BCB00BF1A77 /* AppDelegate.m */; };
 		EA3113681FD63BCB00BF1A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3113671FD63BCB00BF1A77 /* Assets.xcassets */; };
 		EA31136E1FD63BCB00BF1A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31136D1FD63BCB00BF1A77 /* main.m */; };
@@ -36,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47B4AC7A20E4B9EB005AD68B /* LNFPasswordGenerateVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFPasswordGenerateVc.h; sourceTree = "<group>"; };
+		47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFPasswordGenerateVc.m; sourceTree = "<group>"; };
+		47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LNFPasswordGenerateVc.xib; sourceTree = "<group>"; };
 		487B35305F8BD77762380BB6 /* Pods-iOS_Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Learning.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Learning/Pods-iOS_Learning.release.xcconfig"; sourceTree = "<group>"; };
 		623EE43C053BAEBC7FC96CF4 /* libPods-iOS_Learning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS_Learning.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA31135B1FD63BCB00BF1A77 /* iOS_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +168,9 @@
 				EA3113A21FD64B6000BF1A77 /* LNFMainModuleVc.m */,
 				EA3113AA1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.h */,
 				EA3113AB1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m */,
+				47B4AC7A20E4B9EB005AD68B /* LNFPasswordGenerateVc.h */,
+				47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */,
+				47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -360,6 +368,7 @@
 				EA3113931FD6499300BF1A77 /* common_right_arrow@3x.png in Resources */,
 				EA3113941FD6499300BF1A77 /* check_notchoose@3x.png in Resources */,
 				EA3113BA1FD6611700BF1A77 /* BaseUrl.plist in Resources */,
+				47B4AC7E20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib in Resources */,
 				EA31139A1FD6499300BF1A77 /* check_choose@3x.png in Resources */,
 				EA3113981FD6499300BF1A77 /* common_navBar_back_icon@3x.png in Resources */,
 				EA3113951FD6499300BF1A77 /* common_check_notchoose@3x.png in Resources */,
@@ -432,6 +441,7 @@
 				EA3113AC1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m in Sources */,
 				EA3113811FD6433500BF1A77 /* LNFAppHelper.m in Sources */,
 				EA3113A31FD64B6000BF1A77 /* LNFMainModuleVc.m in Sources */,
+				47B4AC7D20E4B9EB005AD68B /* LNFPasswordGenerateVc.m in Sources */,
 				EA3113A01FD64A9300BF1A77 /* LNFNavigationVc.m in Sources */,
 				EA3113BF1FD6637800BF1A77 /* LNFTableViewDataSourceHelper.m in Sources */,
 			);

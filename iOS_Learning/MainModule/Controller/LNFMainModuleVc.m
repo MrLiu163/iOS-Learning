@@ -8,8 +8,11 @@
 
 #import "LNFMainModuleVc.h"
 #import "LNFChangeBaseUrlVc.h"
+#import "LNFPasswordGenerateVc.h"
 
-#define kLNFMainItemName_ChangeBaseUrl             @"Change BaseUrl"
+#define kLNFMainItemName_ChangeBaseUrl                      @"Change BaseUrl"
+#define kLNFMainItemName_BezierRoundAnimation               @"贝塞尔切环动画"
+#define kLNFMainItemName_GeneratePassword                   @"生成密码"
 @interface LNFMainModuleVc ()
 
 @property (nonatomic, strong) LNFTableViewDataSourceHelper *dataSourceHelper;
@@ -33,7 +36,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_ChangeBaseUrl];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_BezierRoundAnimation];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -69,6 +72,12 @@
         LNFChangeBaseUrlVc *changeUrlVc = [[LNFChangeBaseUrlVc alloc] init];
         changeUrlVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:changeUrlVc animated:YES];
+    } else if ([itemName isEqualToString:kLNFMainItemName_BezierRoundAnimation]) {
+        
+    } else if ([itemName isEqualToString:kLNFMainItemName_GeneratePassword]) {
+        LNFPasswordGenerateVc *passwordGenerateVc = [[LNFPasswordGenerateVc alloc] init];
+        passwordGenerateVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:passwordGenerateVc animated:YES];
     }
 }
 - (void)didReceiveMemoryWarning
