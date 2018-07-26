@@ -39,4 +39,7 @@
 /** 检测身份证号码合法性 */
 + (BOOL)checkIdentifierWhetherReally:(NSString *)identifierStr;
 
+/** 验证用户指纹权限 */
++ (void)checkUserAuthorityByFingerprint;
+
 @end

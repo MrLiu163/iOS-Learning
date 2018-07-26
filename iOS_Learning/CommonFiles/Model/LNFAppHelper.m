@@ -7,6 +7,7 @@
 //
 
 #import "LNFAppHelper.h"
+#import <LocalAuthentication/LocalAuthentication.h> // 指纹验证
 
 @interface LNFAppHelper () <UIAlertViewDelegate>
 
@@ -206,6 +207,83 @@
         return success;
     } else {
         return NO;
+    }
+}
+
+/** 验证用户指纹权限 */
++ (void)checkUserAuthorityByFingerprint
+{
+    LAContext *myContext = [[LAContext alloc] init];
+    NSError *authError = nil;
+    NSString *myLocalizedReasonString = @"通过Home键验证已有手机指纹";
+    
+    if ([myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
+        [myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                  localizedReason:myLocalizedReasonString
+                            reply:^(BOOL success, NSError *error) {
+            if (success) {
+                // User authenticated successfully, take appropriate action
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // 回调或者说是通知主线程刷新
+                    [[[UIAlertView alloc] initWithTitle:kLNFUserSelectOptionStr_Title message:@"验证成功" cancelButtonItem:[LNFButtonItem itemWithLabel:kLNFUserSelectOptionStr_Ensure] otherButtonItems: nil] show];
+                });
+            } else {
+                // User did not authenticate successfully, look at error and take appropriate action
+                [self dealWithUserAuthorityByFingerprintError:error];
+            }
+        }];
+    } else {
+        // Could not evaluate policy; look at authError and present an appropriate message to user
+        [self dealWithUserAuthorityByFingerprintError:authError];
+    }
+}
+
+#pragma mark - Private Method
+// 根据指纹验证错误进行提示处理
++ (void)dealWithUserAuthorityByFingerprintError:(NSError *)error
+{
+    NSString *errroMessage = @"";
+    switch (error.code) {
+        case LAErrorAuthenticationFailed:
+            errroMessage = @"授权失败，指纹不对";
+            break;
+        case LAErrorUserCancel:
+            errroMessage = @"用户点击了取消验证";
+            break;
+        case LAErrorUserFallback: // ???
+            errroMessage = @"授权撤回";
+            break;
+        case LAErrorSystemCancel:
+            errroMessage = @"系统取消了授权,其他应用切入";
+            break;
+        case LAErrorPasscodeNotSet:
+            errroMessage = @"没有设置密码";
+            break;
+        case LAErrorTouchIDNotAvailable:
+            errroMessage = @"用户没有开启指纹验证";
+            break;
+        case LAErrorTouchIDNotEnrolled:
+            errroMessage = @"没有录入Touch ID指纹";
+            break;
+        case LAErrorTouchIDLockout:
+            errroMessage = @"Touch ID被锁，需要用户输入密码";
+            break;
+        case LAErrorAppCancel:
+            errroMessage = @"用户不能控制情况下APP被挂起";
+            break;
+        case LAErrorInvalidContext:
+            errroMessage = @"LAContext 传给这次调用之前已经失效";
+            break;
+        default:
+            break;
+    }
+    // 通知主线程刷新
+    if ([[NSThread currentThread].name isEqualToString:[NSThread mainThread].name]) { // 是主线程
+        [[[UIAlertView alloc] initWithTitle:kLNFUserSelectOptionStr_Title message:errroMessage cancelButtonItem:[LNFButtonItem itemWithLabel:kLNFUserSelectOptionStr_Ensure] otherButtonItems: nil] show];
+    } else { // 子线程
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[[UIAlertView alloc] initWithTitle:kLNFUserSelectOptionStr_Title message:errroMessage cancelButtonItem:[LNFButtonItem itemWithLabel:kLNFUserSelectOptionStr_Ensure] otherButtonItems: nil] show];
+        });
     }
 }
 

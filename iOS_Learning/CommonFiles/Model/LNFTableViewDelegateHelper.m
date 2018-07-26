@@ -32,9 +32,11 @@
     if ([self.rowEditActions count]) {
         return self.rowEditActions;
     } else {
-//        UITableViewRowAction *noAction = [[UITableViewRowAction alloc] init];
-//        return @[noAction];
-        return @[];
+        if (self.editActionsForRowBlock) {
+            return self.editActionsForRowBlock(indexPath);
+        } else {
+            return @[];
+        }
     }
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,6 +55,14 @@
         self.didSelectRowBlock(indexPath);
     }
 }
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (self.viewForHeaderBlock) {
+        return self.viewForHeaderBlock(tableView, section);
+    } else {
+        return nil;
+    }
+}
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     if (scrollView.superview) {
@@ -65,6 +75,12 @@
 {
     if (self.didScrollBlock) {
         self.didScrollBlock(scrollView);
+    }
+}
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    if (self.willBeginDeceleratingBlock) {
+        self.willBeginDeceleratingBlock(scrollView);
     }
 }
 

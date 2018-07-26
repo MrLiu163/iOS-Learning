@@ -35,27 +35,43 @@
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.items[indexPath.row];
+    if (self.multipleSections) {
+        return self.items[indexPath.section][indexPath.row];
+    } else {
+        return self.items[indexPath.row];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.multipleSections ? self.items.count : 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.items.count;
+    if (0 == self.items.count) return 0;
+    
+    if (self.multipleSections) {
+        return ((NSArray *)self.items[section]).count;
+    } else {
+        return self.items.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
-    NSObject *item = [self itemAtIndexPath:indexPath];
-    if (self.configureCellBlock) {
-        self.configureCellBlock(cell, item);
+    if (self.cellForRowAtIndexPathBlock) {
+        return self.cellForRowAtIndexPathBlock(tableView, indexPath);
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
+        NSObject *item = [self itemAtIndexPath:indexPath];
+        if (self.configureCellBlock) {
+            self.configureCellBlock(cell, item);
+        } else if (self.configureCellBlockAndIndexPath) {
+            self.configureCellBlockAndIndexPath(cell, item, indexPath);
+        }
+        return cell;
     }
-    return cell;
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
