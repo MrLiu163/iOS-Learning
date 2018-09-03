@@ -198,7 +198,7 @@
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.pswShowLabel.text;
     NSString *alertMessageStr = pasteboard.string;
-    [[[UIAlertView alloc] initWithTitle:kLNFUserSelectOptionStr_Title_En message:alertMessageStr cancelButtonItem:[LNFButtonItem itemWithLabel:kLNFUserSelectOptionStr_Ensure_En] otherButtonItems:nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"已复制" message:alertMessageStr cancelButtonItem:[LNFButtonItem itemWithLabel:kLNFUserSelectOptionStr_Ensure_En] otherButtonItems:nil] show];
 }
 // 加破折号
 - (IBAction)insertDashSymbolSwitchAction:(UISwitch *)sender

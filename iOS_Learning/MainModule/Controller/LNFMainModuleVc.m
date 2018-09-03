@@ -9,11 +9,13 @@
 #import "LNFMainModuleVc.h"
 #import "LNFChangeBaseUrlVc.h"
 #import "LNFPasswordGenerateVc.h"
+#import "LNFPhotoLibraryPhotoAlbumListVc.h"
 
 #define kLNFMainItemName_ChangeBaseUrl                      @"Change BaseUrl"
 #define kLNFMainItemName_BezierRoundAnimation               @"贝塞尔切环动画"
 #define kLNFMainItemName_GeneratePassword                   @"生成密码"
 #define kLNFMainItemName_CheckAuthorityByFingerprint        @"用户指纹验证"
+#define kLNFMainItemName_PhotoLibraryMultiSelect            @"相册图片多选效果"
 @interface LNFMainModuleVc ()
 
 @property (nonatomic, strong) LNFTableViewDataSourceHelper *dataSourceHelper;
@@ -37,7 +39,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -79,6 +81,16 @@
         LNFPasswordGenerateVc *passwordGenerateVc = [[LNFPasswordGenerateVc alloc] init];
         passwordGenerateVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:passwordGenerateVc animated:YES];
+    } else if ([itemName isEqualToString:kLNFMainItemName_PhotoLibraryMultiSelect]) {
+        LNFPhotoLibraryPhotoAlbumListVc *albumListVc = [[LNFPhotoLibraryPhotoAlbumListVc alloc] init];
+        albumListVc.hidesBottomBarWhenPushed = YES;
+        albumListVc.allowMutipleSelect = YES;
+        albumListVc.maxSelectPicCount = 3;
+        albumListVc.mutipleSelectDoneBlock = ^(NSArray<UIImage *> *photoList) {
+            
+        };
+        LNFNavigationVc *navVc = [[LNFNavigationVc alloc] initWithRootViewController:albumListVc];
+        [self presentViewController:navVc animated:YES completion:nil];
     }
 }
 - (void)didReceiveMemoryWarning

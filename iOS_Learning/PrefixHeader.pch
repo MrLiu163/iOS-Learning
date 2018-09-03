@@ -29,10 +29,12 @@
 #import "LNFNavigationVc.h"
 #import "LNFTabBarController.h"
 #import "LNFAppHelper.h"
-#import "UIAlertView+Blocks.h"
 #import "LNFTableViewDataSourceHelper.h"
 #import "LNFTableViewDelegateHelper.h"
 #import "LNFTableViewDataSourceHelper.h"
+// 自定义分类
+#import "UIAlertView+Blocks.h"
+#import "UIImage+LNFCategory.h"
 
 // 常用常量
 #define kLNFKeyWindowTag 2017 // 主窗口
@@ -58,8 +60,9 @@
 #define kLNFSeperatorLineColor       kLNFColorWithHex(0xdadada) // 分割线颜色 边框颜色
 #define kLNFContentViewBorderColor   kLNFColorWithHex(0xdadada) //边框颜色
 #define kLNFSeperatorViewColor       kLNFColorWithHex(0xf4f4f4) // 间隔View颜色
-#define kLNFCommonGreenColor     kLNFColorWithHex(0x23ae51) // 绿色
-#define kLNFCommonRedColor       kLNFColorWithHex(0xe30404) // 红色
+#define kLNFCommonGreenColor         kLNFColorWithHex(0x23ae51) // 绿色
+#define kLNFCommonRedColor           kLNFColorWithHex(0xe30404) // 红色
+#define kLNFLightGrayFontColor       kLNFColorWithHex(0x838383) // 灰色字体
 
 // 获取颜色
 #define kLNFRGBColor(R,G,B) [UIColor colorWithRed:R / 255.0 green:G / 255.0 blue:B / 255.0 alpha:1]
@@ -70,7 +73,7 @@
 
 // 自定义LOG打印
 #ifdef DEBUG
-#define kLNFLog(format,...) NSLog(@"%s:%zd %s: " format, __FILE__, __LINE__, __FUNCTION__, __VA_ARGS__)
+#define kLNFLog(format,...) NSLog(@"%s:%d %s: " format, __FILE__, __LINE__, __FUNCTION__, __VA_ARGS__)
 #else
 #define kLNFLog(...)
 #endif
@@ -78,6 +81,8 @@
 // 屏幕宽高
 #define kLNFScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kLNFScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kLNFCurrentScreenRatio_Width_Divide_Height  ([UIScreen mainScreen].bounds.size.width / [UIScreen mainScreen].bounds.size.height)
+#define kLNFCurrentScreenRatio_Height_Divide_Width  ([UIScreen mainScreen].bounds.size.height / [UIScreen mainScreen].bounds.size.width)
 
 // Cell Identifier
 #define kLNFUITableViewCellIndetifier                @"UITableViewCell"

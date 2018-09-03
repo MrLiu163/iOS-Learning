@@ -17,11 +17,12 @@
 #define kLNFUnderlineSymbolStr      @"_"
 
 // 图片名称
-#define kLNFCommonRefreshPictureName            @"common_refresh"
-#define kLNFCommonFilterPictureName             @"common_filter"
-#define kLNFCommonCheckChoosePictureName        @"common_check_choose"
-#define kLNFCommonCheckNotChoosePictureName     @"common_check_notchoose"
-#define kLNFCommonLeftBackNavItemPictureName    @"common_navBar_back_icon"
+#define kLNFPictureName_CommonRefresh           @"common_refresh"
+#define kLNFPictureName_CommonFilter            @"common_filter"
+#define kLNFPictureName_CommonCheckChoose       @"common_check_choose"
+#define kLNFPictureName_CommonCheckNotChoose    @"common_check_notchoose"
+#define kLNFPictureName_CommonLeftBackNavItem   @"common_navBar_back_icon"
+#define kLNFPictureName_CommonPlaceholder       @"common_picture_placeholder"
 
 // 主模块 plist
 #define kLNFMainModuleInfoPlistFileName         @"MainModule.plist"

@@ -27,7 +27,7 @@
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
     if (self.navigationController.viewControllers.count > 1) {
-        [self addBackBtnItemWithImageName:kLNFCommonLeftBackNavItemPictureName];
+        [self addBackBtnItemWithImageName:kLNFPictureName_CommonLeftBackNavItem];
     }
 }
 
@@ -49,7 +49,7 @@
 /** 添加导航栏左边返回按钮(图片) */
 - (void)addBackBtnItemWithImageName:(NSString *)imageName
 {
-    imageName = imageName ? imageName : kLNFCommonLeftBackNavItemPictureName;
+    imageName = imageName ? imageName : kLNFPictureName_CommonLeftBackNavItem;
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     backBtn.frame = CGRectMake(0, 0, 15, 20);
     [backBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
