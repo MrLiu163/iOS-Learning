@@ -68,7 +68,7 @@
         albumPhotosVc.helpModel = weakSelf.dataSourceHelper.items[indexPath.row];
         albumPhotosVc.hidesBottomBarWhenPushed = YES;
         albumPhotosVc.maxSelectPicCount = weakSelf.maxSelectPicCount ? : NSIntegerMax;
-        if (self.allowMutipleSelect) {
+        if (weakSelf.allowMutipleSelect) {
             albumPhotosVc.allowMutipleSelect = YES;
             albumPhotosVc.mutipleSelectDoneBlock = ^(NSArray<UIImage *> *photoList) {
                 [weakSelf dismissViewControllerAnimated:YES completion:^{

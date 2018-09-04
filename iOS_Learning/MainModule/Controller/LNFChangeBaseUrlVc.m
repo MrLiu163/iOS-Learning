@@ -35,6 +35,7 @@
 {
     self.navigationItem.title = @"修改";
     self.view.backgroundColor = [UIColor whiteColor];
+    kLNFWeakSelf;
     
     NSString *pListPath = [[NSBundle mainBundle] pathForResource:kLNFBaseUrlInfoPlistFileName ofType:nil];
     self.pListPath = pListPath;
@@ -50,19 +51,18 @@
         cell.textLabel.text = item;
     };
     TableViewDidSelectRowConfigureBlock didSelectRowBlock = ^(NSIndexPath *indexPath) {
-        [kLNFUserDefaults setObject:self.urlList[indexPath.row] forKey:kLNFCustomRequestUrlkey];
-        [self.navigationController popViewControllerAnimated:YES];
+        [kLNFUserDefaults setObject:weakSelf.urlList[indexPath.row] forKey:kLNFCustomRequestUrlkey];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"编辑" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        self.editIndexPath = indexPath;
-        UITextField *inputTF = [self.editAlertView textFieldAtIndex:0];
-        inputTF.text = self.urlList[indexPath.row];
-        [self.editAlertView show];
+        weakSelf.editIndexPath = indexPath;
+        UITextField *inputTF = [weakSelf.editAlertView textFieldAtIndex:0];
+        inputTF.text = weakSelf.urlList[indexPath.row];
+        [weakSelf.editAlertView show];
     }];
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        self.deleteIndexPath = indexPath;
-        kLNFWeakSelf;
+        weakSelf.deleteIndexPath = indexPath;
         [[[UIAlertView alloc] initWithTitle:@"提示" message:@"确定删除?" cancelButtonItem:[LNFButtonItem itemWithLabel:@"取消"] otherButtonItems:[LNFButtonItem itemWithLabel:@"确定" action:^{
             NSMutableArray *tempArr = [NSMutableArray arrayWithArray:weakSelf.urlList];
             [tempArr removeObjectAtIndex:weakSelf.deleteIndexPath.row];
