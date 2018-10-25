@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		47B4AC7D20E4B9EB005AD68B /* LNFPasswordGenerateVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */; };
 		47B4AC7E20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */; };
+		47B94FF0218001090086499B /* LNFLoadPictureBySemaphoreVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FEF218001090086499B /* LNFLoadPictureBySemaphoreVc.m */; };
+		47B94FF32180053A0086499B /* LNFCollectionViewDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FF22180053A0086499B /* LNFCollectionViewDataSourceHelper.m */; };
+		47B94FF6218005530086499B /* LNFCollectionViewDelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FF5218005530086499B /* LNFCollectionViewDelegateHelper.m */; };
+		47B94FF9218007C60086499B /* LNFPictureLoadShowCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FF8218007C60086499B /* LNFPictureLoadShowCollectionCell.m */; };
 		EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31135F1FD63BCB00BF1A77 /* AppDelegate.m */; };
 		EA3113681FD63BCB00BF1A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3113671FD63BCB00BF1A77 /* Assets.xcassets */; };
 		EA31136E1FD63BCB00BF1A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31136D1FD63BCB00BF1A77 /* main.m */; };
@@ -50,6 +54,14 @@
 		47B4AC7A20E4B9EB005AD68B /* LNFPasswordGenerateVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFPasswordGenerateVc.h; sourceTree = "<group>"; };
 		47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFPasswordGenerateVc.m; sourceTree = "<group>"; };
 		47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LNFPasswordGenerateVc.xib; sourceTree = "<group>"; };
+		47B94FEE218001090086499B /* LNFLoadPictureBySemaphoreVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFLoadPictureBySemaphoreVc.h; sourceTree = "<group>"; };
+		47B94FEF218001090086499B /* LNFLoadPictureBySemaphoreVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFLoadPictureBySemaphoreVc.m; sourceTree = "<group>"; };
+		47B94FF12180053A0086499B /* LNFCollectionViewDataSourceHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFCollectionViewDataSourceHelper.h; sourceTree = "<group>"; };
+		47B94FF22180053A0086499B /* LNFCollectionViewDataSourceHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFCollectionViewDataSourceHelper.m; sourceTree = "<group>"; };
+		47B94FF4218005530086499B /* LNFCollectionViewDelegateHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFCollectionViewDelegateHelper.h; sourceTree = "<group>"; };
+		47B94FF5218005530086499B /* LNFCollectionViewDelegateHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFCollectionViewDelegateHelper.m; sourceTree = "<group>"; };
+		47B94FF7218007C60086499B /* LNFPictureLoadShowCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LNFPictureLoadShowCollectionCell.h; path = iOS_Learning/CommonFiles/Model/LNFPictureLoadShowCollectionCell.h; sourceTree = SOURCE_ROOT; };
+		47B94FF8218007C60086499B /* LNFPictureLoadShowCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LNFPictureLoadShowCollectionCell.m; path = iOS_Learning/CommonFiles/Model/LNFPictureLoadShowCollectionCell.m; sourceTree = SOURCE_ROOT; };
 		487B35305F8BD77762380BB6 /* Pods-iOS_Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Learning.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Learning/Pods-iOS_Learning.release.xcconfig"; sourceTree = "<group>"; };
 		623EE43C053BAEBC7FC96CF4 /* libPods-iOS_Learning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS_Learning.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA31135B1FD63BCB00BF1A77 /* iOS_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +208,8 @@
 				EA3D3DFC213D19CD000D7DAC /* LNFPhotoLibraryPhotoAlbumListVc.m */,
 				EA3D3E07213D1BA3000D7DAC /* LNFPhotoLibraryPhotoShowAndSelectVc.h */,
 				EA3D3E08213D1BA3000D7DAC /* LNFPhotoLibraryPhotoShowAndSelectVc.m */,
+				47B94FEE218001090086499B /* LNFLoadPictureBySemaphoreVc.h */,
+				47B94FEF218001090086499B /* LNFLoadPictureBySemaphoreVc.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,6 +283,10 @@
 				EA3113BD1FD6637800BF1A77 /* LNFTableViewDataSourceHelper.m */,
 				EA3113BC1FD6637800BF1A77 /* LNFTableViewDelegateHelper.h */,
 				EA3113BE1FD6637800BF1A77 /* LNFTableViewDelegateHelper.m */,
+				47B94FF12180053A0086499B /* LNFCollectionViewDataSourceHelper.h */,
+				47B94FF22180053A0086499B /* LNFCollectionViewDataSourceHelper.m */,
+				47B94FF4218005530086499B /* LNFCollectionViewDelegateHelper.h */,
+				47B94FF5218005530086499B /* LNFCollectionViewDelegateHelper.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +312,8 @@
 		EA31137E1FD6431700BF1A77 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				47B94FF7218007C60086499B /* LNFPictureLoadShowCollectionCell.h */,
+				47B94FF8218007C60086499B /* LNFPictureLoadShowCollectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -483,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA3113C01FD6637800BF1A77 /* LNFTableViewDelegateHelper.m in Sources */,
+				47B94FF0218001090086499B /* LNFLoadPictureBySemaphoreVc.m in Sources */,
 				EA3113C61FD6684600BF1A77 /* LNFIdCardNumberModel.m in Sources */,
 				EA3D3E09213D1BA3000D7DAC /* LNFPhotoLibraryPhotoShowAndSelectVc.m in Sources */,
 				EA3113841FD647C300BF1A77 /* LNFTabBarController.m in Sources */,
@@ -493,11 +514,14 @@
 				EA3D3E06213D1B16000D7DAC /* LNFAssetRequestImageHelpModel.m in Sources */,
 				EA3D3E03213D1AD2000D7DAC /* LNFFetchPhotoAlbumListHelpModel.m in Sources */,
 				EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */,
+				47B94FF9218007C60086499B /* LNFPictureLoadShowCollectionCell.m in Sources */,
 				EA3D3E0C213D1CC2000D7DAC /* LNFPhotoShowCollectionViewCell.m in Sources */,
 				EA3D3DFD213D19CD000D7DAC /* LNFPhotoLibraryPhotoAlbumListVc.m in Sources */,
 				EA3113871FD6483E00BF1A77 /* LNFBaseVc.m in Sources */,
 				EA3D3E12213D221A000D7DAC /* UIImage+LNFCategory.m in Sources */,
+				47B94FF32180053A0086499B /* LNFCollectionViewDataSourceHelper.m in Sources */,
 				EA3113B61FD660A900BF1A77 /* UIAlertView+Blocks.m in Sources */,
+				47B94FF6218005530086499B /* LNFCollectionViewDelegateHelper.m in Sources */,
 				EA3113AC1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m in Sources */,
 				EA3113811FD6433500BF1A77 /* LNFAppHelper.m in Sources */,
 				EA3113A31FD64B6000BF1A77 /* LNFMainModuleVc.m in Sources */,

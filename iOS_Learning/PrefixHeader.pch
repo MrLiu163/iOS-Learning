@@ -23,6 +23,7 @@
 #import "MJRefresh.h"
 #import "MBProgressHUD.h"
 #import "FMDB.h"
+#import "UIImageView+WebCache.h"
 
 // 自定义类头文件
 #import "LNFBaseVc.h"
@@ -31,7 +32,8 @@
 #import "LNFAppHelper.h"
 #import "LNFTableViewDataSourceHelper.h"
 #import "LNFTableViewDelegateHelper.h"
-#import "LNFTableViewDataSourceHelper.h"
+#import "LNFCollectionViewDataSourceHelper.h"
+#import "LNFCollectionViewDelegateHelper.h"
 // 自定义分类
 #import "UIAlertView+Blocks.h"
 #import "UIImage+LNFCategory.h"
@@ -81,6 +83,8 @@
 // 屏幕宽高
 #define kLNFScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kLNFScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kLNFScreenWidthRatio ([UIScreen mainScreen].bounds.size.width / 375)
+#define kLNFScreenHeightRatio ([UIScreen mainScreen].bounds.size.height / 667)
 #define kLNFCurrentScreenRatio_Width_Divide_Height  ([UIScreen mainScreen].bounds.size.width / [UIScreen mainScreen].bounds.size.height)
 #define kLNFCurrentScreenRatio_Height_Divide_Width  ([UIScreen mainScreen].bounds.size.height / [UIScreen mainScreen].bounds.size.width)
 
