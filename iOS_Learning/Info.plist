@@ -27,6 +27,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>请求保存到您的相册，iOS-App将会使用其作为展示</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>请求访问您的相册，iOS-App将会使用在展示界面</string>
 	<key>UILaunchStoryboardName</key>

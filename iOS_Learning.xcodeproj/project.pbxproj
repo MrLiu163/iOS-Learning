@@ -13,6 +13,7 @@
 		47B94FF32180053A0086499B /* LNFCollectionViewDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FF22180053A0086499B /* LNFCollectionViewDataSourceHelper.m */; };
 		47B94FF6218005530086499B /* LNFCollectionViewDelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FF5218005530086499B /* LNFCollectionViewDelegateHelper.m */; };
 		47B94FF9218007C60086499B /* LNFPictureLoadShowCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FF8218007C60086499B /* LNFPictureLoadShowCollectionCell.m */; };
+		47E87A712189A0FC00ABC355 /* LNFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E87A702189A0FC00ABC355 /* LNFNetworking.m */; };
 		EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31135F1FD63BCB00BF1A77 /* AppDelegate.m */; };
 		EA3113681FD63BCB00BF1A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3113671FD63BCB00BF1A77 /* Assets.xcassets */; };
 		EA31136E1FD63BCB00BF1A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31136D1FD63BCB00BF1A77 /* main.m */; };
@@ -62,6 +63,8 @@
 		47B94FF5218005530086499B /* LNFCollectionViewDelegateHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFCollectionViewDelegateHelper.m; sourceTree = "<group>"; };
 		47B94FF7218007C60086499B /* LNFPictureLoadShowCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LNFPictureLoadShowCollectionCell.h; path = iOS_Learning/CommonFiles/Model/LNFPictureLoadShowCollectionCell.h; sourceTree = SOURCE_ROOT; };
 		47B94FF8218007C60086499B /* LNFPictureLoadShowCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LNFPictureLoadShowCollectionCell.m; path = iOS_Learning/CommonFiles/Model/LNFPictureLoadShowCollectionCell.m; sourceTree = SOURCE_ROOT; };
+		47E87A6F2189A0FC00ABC355 /* LNFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFNetworking.h; sourceTree = "<group>"; };
+		47E87A702189A0FC00ABC355 /* LNFNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFNetworking.m; sourceTree = "<group>"; };
 		487B35305F8BD77762380BB6 /* Pods-iOS_Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Learning.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Learning/Pods-iOS_Learning.release.xcconfig"; sourceTree = "<group>"; };
 		623EE43C053BAEBC7FC96CF4 /* libPods-iOS_Learning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS_Learning.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA31135B1FD63BCB00BF1A77 /* iOS_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +141,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47E87A6E2189A0DC00ABC355 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				47E87A6F2189A0FC00ABC355 /* LNFNetworking.h */,
+				47E87A702189A0FC00ABC355 /* LNFNetworking.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		4BEBCCC073CC3FBE6B11D1B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +262,7 @@
 		EA31137A1FD6431700BF1A77 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				47E87A6E2189A0DC00ABC355 /* Tools */,
 				EA3113AF1FD6608A00BF1A77 /* Category */,
 				EA3113A71FD64DD900BF1A77 /* PlistFiles */,
 				EA31139C1FD649D000BF1A77 /* HeaderFiles */,
@@ -508,6 +521,7 @@
 				EA3D3E09213D1BA3000D7DAC /* LNFPhotoLibraryPhotoShowAndSelectVc.m in Sources */,
 				EA3113841FD647C300BF1A77 /* LNFTabBarController.m in Sources */,
 				EA3113B51FD660A900BF1A77 /* LNFButtonItem.m in Sources */,
+				47E87A712189A0FC00ABC355 /* LNFNetworking.m in Sources */,
 				EA3D3E00213D1A55000D7DAC /* LNFPhotoLibraryPhotoAlbumListCell.m in Sources */,
 				EA3D3E0F213D1E81000D7DAC /* LNFZoomPictureView.m in Sources */,
 				EA31136E1FD63BCB00BF1A77 /* main.m in Sources */,
