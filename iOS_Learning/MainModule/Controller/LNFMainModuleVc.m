@@ -20,6 +20,7 @@
 #define kLNFMainItemName_SemaphoreRequestQueue              @"信号量控制请求队列"
 #define kLNFMainItemName_LoadingFiles                       @"下载文件"
 #define kLNFMainItemName_DownloadMP3Files                   @"下载Mp3文件"
+#define kLNFMainItemName_DownloadMVFiles                    @"下载MV文件"
 @interface LNFMainModuleVc ()
 
 @property (nonatomic, strong) LNFTableViewDataSourceHelper *dataSourceHelper;
@@ -43,7 +44,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -120,7 +121,9 @@
             kLNFLog(@"---->>>>%@", @"下载完成");
         }];
     } else if ([itemName isEqualToString:kLNFMainItemName_DownloadMP3Files]) {
-        [LNFDownloadManager downloadFilesFromTextURLs];
+        [LNFDownloadManager downloadMP3FilesFromTextURLs];
+    } else if ([itemName isEqualToString:kLNFMainItemName_DownloadMVFiles]) {
+        [LNFDownloadManager downloadMVFilesFromTextURLs];
     }
 }
 

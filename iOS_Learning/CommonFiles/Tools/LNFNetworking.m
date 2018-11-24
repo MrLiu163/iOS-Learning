@@ -38,6 +38,46 @@
     return self;
 }
 
+/** 普通网络请求 POST */
+- (void)postRequestUrl:(NSString *)url parameters:(NSDictionary *)parameters showHUD:(BOOL)show success:(Success)success failure:(Failure)failure
+{
+    _manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    _manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    _manager.requestSerializer.HTTPShouldHandleCookies = YES;
+    [_manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    [self.manager POST:url parameters:parameters ? : @{} progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+/** 普通网络请求 GET */
+- (void)getRequestUrl:(NSString *)url parameters:(NSDictionary *)parameters showHUD:(BOOL)show success:(Success)success failure:(Failure)failure
+{
+    _manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    _manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [_manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    [self.manager GET:url parameters:parameters ? : @{} progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 /** 下载文件 */
 - (void)downloadFileWithRequestUrl:(NSString *)requestUrl destination:(Destination)destination progress:(Progress)progress completion:(CompletionHandler)completion;
 {
