@@ -2,7 +2,7 @@
 //  LNFMainModuleVc.m
 //  iOS_Learning
 //
-//  Created by liuningfei on 05/12/2017.
+//  Created by MrLiu on 05/12/2017.
 //  Copyright © 2017 interstellar. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 #define kLNFMainItemName_PhotoLibraryMultiSelect            @"相册图片多选效果"
 #define kLNFMainItemName_SemaphoreRequestQueue              @"信号量控制请求队列"
 #define kLNFMainItemName_LoadingFiles                       @"下载文件"
+#define kLNFMainItemName_DownloadMP3Files                   @"下载Mp3文件"
 @interface LNFMainModuleVc ()
 
 @property (nonatomic, strong) LNFTableViewDataSourceHelper *dataSourceHelper;
@@ -42,7 +43,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -118,6 +119,8 @@
             }
             kLNFLog(@"---->>>>%@", @"下载完成");
         }];
+    } else if ([itemName isEqualToString:kLNFMainItemName_DownloadMP3Files]) {
+        [LNFDownloadManager downloadFilesFromTextURLs];
     }
 }
 

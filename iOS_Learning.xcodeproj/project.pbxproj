@@ -48,6 +48,7 @@
 		EA3D3E0F213D1E81000D7DAC /* LNFZoomPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3D3E0E213D1E81000D7DAC /* LNFZoomPictureView.m */; };
 		EA3D3E12213D221A000D7DAC /* UIImage+LNFCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3D3E11213D221A000D7DAC /* UIImage+LNFCategory.m */; };
 		EA3D3E14213D2489000D7DAC /* common_picture_placeholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA3D3E13213D2488000D7DAC /* common_picture_placeholder@3x.png */; };
+		EAA1B58521A84F0A000B6218 /* LNFDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA1B58421A84F0A000B6218 /* LNFDownloadManager.m */; };
 		F6CF64F857EA8DA87180E926 /* libPods-iOS_Learning.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 623EE43C053BAEBC7FC96CF4 /* libPods-iOS_Learning.a */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,8 @@
 		EA3D3E10213D221A000D7DAC /* UIImage+LNFCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+LNFCategory.h"; sourceTree = "<group>"; };
 		EA3D3E11213D221A000D7DAC /* UIImage+LNFCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LNFCategory.m"; sourceTree = "<group>"; };
 		EA3D3E13213D2488000D7DAC /* common_picture_placeholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_picture_placeholder@3x.png"; sourceTree = "<group>"; };
+		EAA1B58321A84F0A000B6218 /* LNFDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFDownloadManager.h; sourceTree = "<group>"; };
+		EAA1B58421A84F0A000B6218 /* LNFDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFDownloadManager.m; sourceTree = "<group>"; };
 		F0F56A4E8AF4EDA8F8F69B87 /* Pods-iOS_Learning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Learning.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Learning/Pods-iOS_Learning.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +265,7 @@
 		EA31137A1FD6431700BF1A77 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				EAA1B58021A84CBF000B6218 /* TextFiles */,
 				47E87A6E2189A0DC00ABC355 /* Tools */,
 				EA3113AF1FD6608A00BF1A77 /* Category */,
 				EA3113A71FD64DD900BF1A77 /* PlistFiles */,
@@ -292,6 +296,8 @@
 			children = (
 				EA31137F1FD6433500BF1A77 /* LNFAppHelper.h */,
 				EA3113801FD6433500BF1A77 /* LNFAppHelper.m */,
+				EAA1B58321A84F0A000B6218 /* LNFDownloadManager.h */,
+				EAA1B58421A84F0A000B6218 /* LNFDownloadManager.m */,
 				EA3113BB1FD6637800BF1A77 /* LNFTableViewDataSourceHelper.h */,
 				EA3113BD1FD6637800BF1A77 /* LNFTableViewDataSourceHelper.m */,
 				EA3113BC1FD6637800BF1A77 /* LNFTableViewDelegateHelper.h */,
@@ -380,6 +386,13 @@
 				EA3113791FD63E6600BF1A77 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EAA1B58021A84CBF000B6218 /* TextFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TextFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -525,6 +538,7 @@
 				EA3D3E00213D1A55000D7DAC /* LNFPhotoLibraryPhotoAlbumListCell.m in Sources */,
 				EA3D3E0F213D1E81000D7DAC /* LNFZoomPictureView.m in Sources */,
 				EA31136E1FD63BCB00BF1A77 /* main.m in Sources */,
+				EAA1B58521A84F0A000B6218 /* LNFDownloadManager.m in Sources */,
 				EA3D3E06213D1B16000D7DAC /* LNFAssetRequestImageHelpModel.m in Sources */,
 				EA3D3E03213D1AD2000D7DAC /* LNFFetchPhotoAlbumListHelpModel.m in Sources */,
 				EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */,
