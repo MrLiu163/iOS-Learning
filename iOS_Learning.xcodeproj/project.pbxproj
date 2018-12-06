@@ -15,6 +15,10 @@
 		47B94FF9218007C60086499B /* LNFPictureLoadShowCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FF8218007C60086499B /* LNFPictureLoadShowCollectionCell.m */; };
 		47BED12A21A8ED2B00B258AB /* SongList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47BED12921A8ED2B00B258AB /* SongList.txt */; };
 		47BED12C21A8FA9800B258AB /* MVList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47BED12B21A8FA9800B258AB /* MVList.txt */; };
+		47CEA61B21B8FD3900C7D86C /* LNFCommonMethodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CEA61A21B8FD3900C7D86C /* LNFCommonMethodHelper.m */; };
+		47CEA61E21B92D9400C7D86C /* LNFExampleMethodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CEA61D21B92D9400C7D86C /* LNFExampleMethodHelper.m */; };
+		47CEA62021B9737300C7D86C /* VideoHTML.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47CEA61F21B9737300C7D86C /* VideoHTML.txt */; };
+		47D9EEFE21B7A40A00D37593 /* WEBVideoList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47D9EEFD21B7A40A00D37593 /* WEBVideoList.txt */; };
 		47E87A712189A0FC00ABC355 /* LNFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E87A702189A0FC00ABC355 /* LNFNetworking.m */; };
 		EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31135F1FD63BCB00BF1A77 /* AppDelegate.m */; };
 		EA3113681FD63BCB00BF1A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3113671FD63BCB00BF1A77 /* Assets.xcassets */; };
@@ -68,6 +72,12 @@
 		47B94FF8218007C60086499B /* LNFPictureLoadShowCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LNFPictureLoadShowCollectionCell.m; path = iOS_Learning/CommonFiles/Model/LNFPictureLoadShowCollectionCell.m; sourceTree = SOURCE_ROOT; };
 		47BED12921A8ED2B00B258AB /* SongList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SongList.txt; sourceTree = "<group>"; };
 		47BED12B21A8FA9800B258AB /* MVList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MVList.txt; sourceTree = "<group>"; };
+		47CEA61921B8FD3900C7D86C /* LNFCommonMethodHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFCommonMethodHelper.h; sourceTree = "<group>"; };
+		47CEA61A21B8FD3900C7D86C /* LNFCommonMethodHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFCommonMethodHelper.m; sourceTree = "<group>"; };
+		47CEA61C21B92D9400C7D86C /* LNFExampleMethodHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFExampleMethodHelper.h; sourceTree = "<group>"; };
+		47CEA61D21B92D9400C7D86C /* LNFExampleMethodHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFExampleMethodHelper.m; sourceTree = "<group>"; };
+		47CEA61F21B9737300C7D86C /* VideoHTML.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VideoHTML.txt; sourceTree = "<group>"; };
+		47D9EEFD21B7A40A00D37593 /* WEBVideoList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WEBVideoList.txt; sourceTree = "<group>"; };
 		47E87A6F2189A0FC00ABC355 /* LNFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFNetworking.h; sourceTree = "<group>"; };
 		47E87A702189A0FC00ABC355 /* LNFNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFNetworking.m; sourceTree = "<group>"; };
 		487B35305F8BD77762380BB6 /* Pods-iOS_Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Learning.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Learning/Pods-iOS_Learning.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +163,8 @@
 			children = (
 				47BED12B21A8FA9800B258AB /* MVList.txt */,
 				47BED12921A8ED2B00B258AB /* SongList.txt */,
+				47D9EEFD21B7A40A00D37593 /* WEBVideoList.txt */,
+				47CEA61F21B9737300C7D86C /* VideoHTML.txt */,
 			);
 			path = TextFiles;
 			sourceTree = "<group>";
@@ -309,6 +321,10 @@
 			children = (
 				EA31137F1FD6433500BF1A77 /* LNFAppHelper.h */,
 				EA3113801FD6433500BF1A77 /* LNFAppHelper.m */,
+				47CEA61921B8FD3900C7D86C /* LNFCommonMethodHelper.h */,
+				47CEA61A21B8FD3900C7D86C /* LNFCommonMethodHelper.m */,
+				47CEA61C21B92D9400C7D86C /* LNFExampleMethodHelper.h */,
+				47CEA61D21B92D9400C7D86C /* LNFExampleMethodHelper.m */,
 				EAA1B58321A84F0A000B6218 /* LNFDownloadManager.h */,
 				EAA1B58421A84F0A000B6218 /* LNFDownloadManager.m */,
 				EA3113BB1FD6637800BF1A77 /* LNFTableViewDataSourceHelper.h */,
@@ -467,7 +483,9 @@
 				EA31139B1FD6499300BF1A77 /* common_loadingHud@2x.png in Resources */,
 				EA3D3E14213D2489000D7DAC /* common_picture_placeholder@3x.png in Resources */,
 				EA3113991FD6499300BF1A77 /* common_filter@3x.png in Resources */,
+				47D9EEFE21B7A40A00D37593 /* WEBVideoList.txt in Resources */,
 				EA3113971FD6499300BF1A77 /* common_refresh@3x.png in Resources */,
+				47CEA62021B9737300C7D86C /* VideoHTML.txt in Resources */,
 				EA3113681FD63BCB00BF1A77 /* Assets.xcassets in Resources */,
 				47BED12C21A8FA9800B258AB /* MVList.txt in Resources */,
 				EA3113931FD6499300BF1A77 /* common_right_arrow@3x.png in Resources */,
@@ -546,6 +564,7 @@
 				EA3D3E00213D1A55000D7DAC /* LNFPhotoLibraryPhotoAlbumListCell.m in Sources */,
 				EA3D3E0F213D1E81000D7DAC /* LNFZoomPictureView.m in Sources */,
 				EA31136E1FD63BCB00BF1A77 /* main.m in Sources */,
+				47CEA61B21B8FD3900C7D86C /* LNFCommonMethodHelper.m in Sources */,
 				EAA1B58521A84F0A000B6218 /* LNFDownloadManager.m in Sources */,
 				EA3D3E06213D1B16000D7DAC /* LNFAssetRequestImageHelpModel.m in Sources */,
 				EA3D3E03213D1AD2000D7DAC /* LNFFetchPhotoAlbumListHelpModel.m in Sources */,
@@ -559,6 +578,7 @@
 				EA3113B61FD660A900BF1A77 /* UIAlertView+Blocks.m in Sources */,
 				47B94FF6218005530086499B /* LNFCollectionViewDelegateHelper.m in Sources */,
 				EA3113AC1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m in Sources */,
+				47CEA61E21B92D9400C7D86C /* LNFExampleMethodHelper.m in Sources */,
 				EA3113811FD6433500BF1A77 /* LNFAppHelper.m in Sources */,
 				EA3113A31FD64B6000BF1A77 /* LNFMainModuleVc.m in Sources */,
 				47B4AC7D20E4B9EB005AD68B /* LNFPasswordGenerateVc.m in Sources */,

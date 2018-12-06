@@ -16,4 +16,13 @@
 /** 下载Text文件中MV链接文件 */
 + (void)downloadMVFilesFromTextURLs;
 
+/** 下载WEB视频 */
++ (void)downloadWEBVideoFilesFromTextURLs;
+
+/** 分解HTML获取标签内容到Text */
++ (void)divideHTMLContentIntoTextFiles;
+
+/** 保存视频到相册 */
++ (void)saveVideoToPhotosAlbumWithFilePath:(NSURL *)filePath;
+
 @end

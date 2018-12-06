@@ -36,6 +36,8 @@
 #import "LNFCollectionViewDelegateHelper.h"
 #import "LNFNetworking.h"
 #import "LNFDownloadManager.h"
+#import "LNFCommonMethodHelper.h"
+#import "LNFExampleMethodHelper.h"
 // 自定义分类
 #import "UIAlertView+Blocks.h"
 #import "UIImage+LNFCategory.h"
