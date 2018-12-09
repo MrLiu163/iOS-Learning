@@ -151,7 +151,7 @@
         NSString *idStr = components_getId.lastObject;
         NSArray<NSString *> *components_getName = [originLinkStr componentsSeparatedByString:@"|"];
         NSString *nameStr = components_getName.firstObject;
-        NSString *detailInfoStr = [NSString stringWithFormat:@"%@", idStr ? : @""];
+        NSString *detailInfoStr = [NSString stringWithFormat:@"#STR000#%@", idStr ? : @""]; // Combine Video Info Url
         [detailInfoLinkList addObject:detailInfoStr];
         [idList addObject:idStr];
         [nameList addObject:nameStr];
@@ -169,7 +169,7 @@
                 NSString *dataStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
                 NSArray<NSString *> *urlComponents = [dataStr componentsSeparatedByString:@"&"];
                 for (NSString *targetStr in urlComponents) {
-                    if ([targetStr hasPrefix:@""]) {
+                    if ([targetStr hasPrefix:@"#STR001#"]) { // Find Target String
                         NSString *mapInfoStr = [targetStr componentsSeparatedByString:@"="].lastObject;
                         mapInfoStr = [mapInfoStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
                         NSMutableArray<NSDictionary *> *videoInfoList = [NSMutableArray array];
@@ -187,6 +187,14 @@
                             [videoInfoList addObject:videoInfoDict];
                         }
                         downloadStr = videoInfoList.firstObject[@"url"];
+                        // 缓存下载信息到沙盒
+                        NSString *cachedDictPath = [kLNFSanboxDirectoriesPath_Caches stringByAppendingPathComponent:@"downloadDict.plist"];
+                        NSDictionary *cachedDict = [[NSDictionary alloc] initWithContentsOfFile:cachedDictPath];
+                        NSMutableDictionary *tempDict = [NSMutableDictionary dictionaryWithDictionary:cachedDict];
+                        if (![tempDict.allKeys containsObject:idList[i]]) {
+                            [tempDict setObject:videoInfoList forKey:idList[i]];
+                            [tempDict writeToFile:cachedDictPath atomically:YES];
+                        }
                     }
                 }
                 
@@ -200,21 +208,21 @@
                     } progress:^(NSProgress * _Nullable downloadProgress) {
                         logFlag += 1;
                         if (100 == logFlag) {
-                            kLNFLog(@"---->>>>已完成 %.2f，%.2fM，共%.2fM", downloadProgress.completedUnitCount / 1.0 / downloadProgress.totalUnitCount, downloadProgress.completedUnitCount / 1.0 / 1000 / 1000, downloadProgress.totalUnitCount/ 1.0 / 1000 / 1000);
+                            kLNFLog(@"----%@>>>>已完成 %.2f，%.2fM，共%.2fM", idList[i], downloadProgress.completedUnitCount / 1.0 / downloadProgress.totalUnitCount, downloadProgress.completedUnitCount / 1.0 / 1000 / 1000, downloadProgress.totalUnitCount/ 1.0 / 1000 / 1000);
                             logFlag = 0;
                         }
                     } completion:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
                         if (error) {
-                            kLNFLog(@"---->>>>%@", @"下载出错");
+                            kLNFLog(@"----%@>>>>%@", idList[i], @"下载出错");
                         }
                         dispatch_semaphore_signal(semaphore_download);
                     }];
                     dispatch_semaphore_wait(semaphore_download, DISPATCH_TIME_FOREVER);
                 } else {
-                    kLNFLog(@"---->>>>%@", @"未获取到链接");
+                    kLNFLog(@"----%@>>>>%@", idList[i], @"未获取到链接");
                 }
             } else {
-                kLNFLog(@"---->>>>%@", @"文件已经下载");
+                kLNFLog(@"----%@>>>>%@", idList[i], @"文件已经下载");
             }
         }];
         [blockOperationList addObject:tempBlockOperation];
@@ -249,6 +257,8 @@
             NSString *videoNameStr = helpList[3];
             NSString *videoUrlStr = helpList[4];
             videoNameStr = [videoNameStr stringByReplacingOccurrencesOfString:@"|" withString:@""]; // 去除名称中的竖直符号
+            videoNameStr = [videoNameStr stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"]; // 替换名称中的&amp;
+            videoUrlStr = [videoUrlStr componentsSeparatedByString:@"&"].firstObject; // 后面可能会有&拼接
             videoUrlStr = [NSString stringWithFormat:@"%@", videoUrlStr];
             NSString *finalStr = [NSString stringWithFormat:@"%@|%@", videoNameStr, videoUrlStr];
             [aLabelList addObject:finalStr];
