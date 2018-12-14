@@ -114,7 +114,8 @@
     } else if ([itemName isEqualToString:kLNFMainItemName_StringEncodeDecode]) {
         [LNFExampleMethodHelper stringUTF8EncodeAndDecode];
     } else if ([itemName isEqualToString:kLNFMainItemName_DivideHTMLLabel]) {
-        [LNFDownloadManager divideHTMLContentIntoTextFiles];
+//        [LNFDownloadManager divideYouVideoHTMLContentIntoTextFiles];
+        [LNFDownloadManager divideWangMVHTMLContentIntoTextFiles];
     }
 }
 

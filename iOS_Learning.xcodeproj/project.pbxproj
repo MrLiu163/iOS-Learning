@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		472B7A4821C1244F0035EBEB /* MVHTML.txt in Resources */ = {isa = PBXBuildFile; fileRef = 472B7A4721C1244F0035EBEB /* MVHTML.txt */; };
 		47B4AC7D20E4B9EB005AD68B /* LNFPasswordGenerateVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */; };
 		47B4AC7E20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */; };
 		47B94FF0218001090086499B /* LNFLoadPictureBySemaphoreVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FEF218001090086499B /* LNFLoadPictureBySemaphoreVc.m */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		472B7A4721C1244F0035EBEB /* MVHTML.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MVHTML.txt; sourceTree = "<group>"; };
 		47B4AC7A20E4B9EB005AD68B /* LNFPasswordGenerateVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFPasswordGenerateVc.h; sourceTree = "<group>"; };
 		47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFPasswordGenerateVc.m; sourceTree = "<group>"; };
 		47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LNFPasswordGenerateVc.xib; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				47BED12921A8ED2B00B258AB /* SongList.txt */,
 				47D9EEFD21B7A40A00D37593 /* WEBVideoList.txt */,
 				47CEA61F21B9737300C7D86C /* VideoHTML.txt */,
+				472B7A4721C1244F0035EBEB /* MVHTML.txt */,
 			);
 			path = TextFiles;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				47BED12C21A8FA9800B258AB /* MVList.txt in Resources */,
 				EA3113931FD6499300BF1A77 /* common_right_arrow@3x.png in Resources */,
 				EA3113941FD6499300BF1A77 /* check_notchoose@3x.png in Resources */,
+				472B7A4821C1244F0035EBEB /* MVHTML.txt in Resources */,
 				EA3113BA1FD6611700BF1A77 /* BaseUrl.plist in Resources */,
 				47B4AC7E20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib in Resources */,
 				EA31139A1FD6499300BF1A77 /* check_choose@3x.png in Resources */,

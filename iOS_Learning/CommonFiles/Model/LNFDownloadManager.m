@@ -91,40 +91,52 @@
     NSMutableArray<NSBlockOperation *> *blockOperationList = [NSMutableArray array];
     for (NSInteger i = 0; i < detailInfoLinkList.count; i++) {
         NSString *detailInfoStr = detailInfoLinkList[i];
-        NSBlockOperation *tempBlockOperation = [NSBlockOperation blockOperationWithBlock:^{
-            
-            dispatch_semaphore_t semaphore_getInfo = dispatch_semaphore_create(0);
-            __block NSString *downloadStr = @"";
-            [[LNFNetworking shareInstance] getRequestUrl:detailInfoStr parameters:@{} showHUD:NO success:^(id  _Nullable responseObject) {
+        
+        NSString *filePath = [kLNFSanboxDirectoriesPath_Caches stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4", nameList[i] ? : idList[i]]];
+        BOOL isFileExist = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+        if (!isFileExist) {
+            NSBlockOperation *tempBlockOperation = [NSBlockOperation blockOperationWithBlock:^{
                 
-                NSDictionary *downloadLinkDict = responseObject[@"data"][@"brs"];
-                downloadStr = downloadLinkDict.allValues.lastObject;
-                dispatch_semaphore_signal(semaphore_getInfo);
-            } failure:^(NSError * _Nullable error) {
-                dispatch_semaphore_signal(semaphore_getInfo);
-            }];
-            dispatch_semaphore_wait(semaphore_getInfo, DISPATCH_TIME_FOREVER);
-            
-            if (downloadStr.length) {
-                dispatch_semaphore_t semaphore_download = dispatch_semaphore_create(0);
-                [[LNFNetworking shareInstance] downloadFileWithRequestUrl:downloadStr destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-                    NSString *filePath = [kLNFSanboxDirectoriesPath_Caches stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4", nameList[i] ? : idList[i]]];
-                    NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-                    return fileURL;
-                } progress:^(NSProgress * _Nullable downloadProgress) {
-                    kLNFLog(@"---->>>>已完成 %.2f，%.2fM，共%.2fM", downloadProgress.completedUnitCount / 1.0 / downloadProgress.totalUnitCount, downloadProgress.completedUnitCount / 1.0 / 1000 / 1000, downloadProgress.totalUnitCount/ 1.0 / 1000 / 1000);
-                } completion:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-                    if (error) {
-                        kLNFLog(@"---->>>>%@", @"下载出错");
-                    }
-                    dispatch_semaphore_signal(semaphore_download);
+                dispatch_semaphore_t semaphore_getInfo = dispatch_semaphore_create(0);
+                __block NSString *downloadStr = @"";
+                [[LNFNetworking shareInstance] getRequestUrl:detailInfoStr parameters:@{} showHUD:NO success:^(id  _Nullable responseObject) {
+                    
+                    NSDictionary *downloadLinkDict = responseObject[@"data"][@"brs"];
+                    downloadStr = downloadLinkDict.allValues.lastObject;
+                    dispatch_semaphore_signal(semaphore_getInfo);
+                } failure:^(NSError * _Nullable error) {
+                    dispatch_semaphore_signal(semaphore_getInfo);
                 }];
-                dispatch_semaphore_wait(semaphore_download, DISPATCH_TIME_FOREVER);
-            } else {
-                kLNFLog(@"---->>>>%@", @"未获取到链接");
-            }
-        }];
-        [blockOperationList addObject:tempBlockOperation];
+                dispatch_semaphore_wait(semaphore_getInfo, DISPATCH_TIME_FOREVER);
+                
+                if (downloadStr.length) {
+                    __block NSInteger logFlag = 0;
+                    dispatch_semaphore_t semaphore_download = dispatch_semaphore_create(0);
+                    [[LNFNetworking shareInstance] downloadFileWithRequestUrl:downloadStr destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+                        NSString *filePath = [kLNFSanboxDirectoriesPath_Caches stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4", nameList[i] ? : idList[i]]];
+                        NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+                        return fileURL;
+                    } progress:^(NSProgress * _Nullable downloadProgress) {
+                        logFlag += 1;
+                        if (100 == logFlag) {
+                            kLNFLog(@"----%@>>>>已完成 %.2f，%.2fM，共%.2fM", idList[i], downloadProgress.completedUnitCount / 1.0 / downloadProgress.totalUnitCount, downloadProgress.completedUnitCount / 1.0 / 1000 / 1000, downloadProgress.totalUnitCount/ 1.0 / 1000 / 1000);
+                            logFlag = 0;
+                        }
+                    } completion:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+                        if (error) {
+                            kLNFLog(@"----%@>>>>%@", idList[i], @"下载出错");
+                        }
+                        dispatch_semaphore_signal(semaphore_download);
+                    }];
+                    dispatch_semaphore_wait(semaphore_download, DISPATCH_TIME_FOREVER);
+                } else {
+                    kLNFLog(@"----%@>>>>%@", idList[i], @"未获取到链接");
+                }
+            }];
+            [blockOperationList addObject:tempBlockOperation];
+        } else {
+            kLNFLog(@"----%@>>>>%@", idList[i], @"文件已经下载");
+        }
     }
     
     NSOperationQueue *childDownloadQueue = [[NSOperationQueue alloc] init];
@@ -240,7 +252,7 @@
 }
 
 /** 分解HTML获取标签内容到Text */
-+ (void)divideHTMLContentIntoTextFiles
++ (void)divideYouVideoHTMLContentIntoTextFiles
 {
     NSString *htmlStr = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"VideoHTML" ofType:@"txt"] encoding:NSUTF8StringEncoding error:nil];
     NSArray<NSString *> *components_00 = [htmlStr componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
@@ -283,6 +295,54 @@
         descriptionStr = [LNFCommonMethodHelper transformToChineseCharacterFromUnicodeStr:descriptionStr];
         [descriptionStr writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     }
+}
+
+/** 分解MVHTML获取标签内容到Text */
++ (void)divideWangMVHTMLContentIntoTextFiles
+{
+    /*
+     * Singer Default
+    NSString *htmlStr = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MVHTML" ofType:@"txt"] encoding:NSUTF8StringEncoding error:nil];
+    NSArray<NSString *> *components_00 = [htmlStr componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\n"]];
+    NSMutableArray<NSString *> *fullInfoStrList = [NSMutableArray array];
+    for (NSString *tempComponentsStr in components_00) {
+        if ([tempComponentsStr containsString:@"tit f-thide s-fc0"]) {
+            NSArray<NSString *> *components_01 = [tempComponentsStr componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+            NSString *hrefStr = components_01[3];
+            NSString *videoNameStr = components_01[4];
+            NSArray<NSString *> *components_02 = [hrefStr componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\""]];
+            NSString *idStr = components_02[1];
+            NSString *fullInfoStr = [NSString stringWithFormat:@"%@|%@", videoNameStr, idStr];
+            [fullInfoStrList addObject:fullInfoStr];
+            kLNFLog(@"---->>>>%@", @"分解HTML");
+        }
+    }
+    NSString *filePath = [kLNFSanboxDirectoriesPath_Caches stringByAppendingPathComponent:@"WangMVVideoList.txt"];
+    NSString *descriptionStr = fullInfoStrList.description;
+    // 经过description转化后中文会变为unicode编码
+    descriptionStr = [LNFCommonMethodHelper transformToChineseCharacterFromUnicodeStr:descriptionStr];
+    [descriptionStr writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    */
+    // User List
+    NSString *htmlStr = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MVHTML" ofType:@"txt"] encoding:NSUTF8StringEncoding error:nil];
+    NSArray<NSString *> *components_00 = [htmlStr componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    NSMutableArray<NSString *> *fullInfoStrList = [NSMutableArray array];
+    for (NSString *tempComponentsStr in components_00) {
+        if ([tempComponentsStr containsString:@"s-fc0"]) {
+            NSArray<NSString *> *components_01 = [tempComponentsStr componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\""]];
+            NSString *videoNameStr = components_01[11];
+            NSString *idStr = components_01[7];
+            NSString *fullInfoStr = [NSString stringWithFormat:@"%@|%@", videoNameStr, idStr];
+            [fullInfoStrList addObject:fullInfoStr];
+            kLNFLog(@"---->>>>%@", @"分解HTML");
+        }
+    }
+    NSString *filePath = [kLNFSanboxDirectoriesPath_Caches stringByAppendingPathComponent:@"WangMVVideoList.txt"];
+    NSString *descriptionStr = fullInfoStrList.description;
+    // 经过description转化后中文会变为unicode编码
+    descriptionStr = [LNFCommonMethodHelper transformToChineseCharacterFromUnicodeStr:descriptionStr];
+    [descriptionStr writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    kLNFLog(@"---->>>>%@", @"分解HTML");
 }
 
 /** 下载文件，通过下载链接 */
