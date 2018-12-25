@@ -112,7 +112,8 @@
     } else if ([itemName isEqualToString:kLNFMainItemName_DownloadNetVideo]) {
         [LNFDownloadManager downloadWEBVideoFilesFromTextURLs];
     } else if ([itemName isEqualToString:kLNFMainItemName_StringEncodeDecode]) {
-        [LNFExampleMethodHelper stringUTF8EncodeAndDecode];
+//        [LNFExampleMethodHelper stringUTF8EncodeAndDecode];
+        [LNFExampleMethodHelper regexUseForGetHTMLInfo];
     } else if ([itemName isEqualToString:kLNFMainItemName_DivideHTMLLabel]) {
 //        [LNFDownloadManager divideYouVideoHTMLContentIntoTextFiles];
         [LNFDownloadManager divideWangMVHTMLContentIntoTextFiles];

@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 字符串UTF8编码解码 */
 + (void)stringUTF8EncodeAndDecode;
 
+/** 正则表达式使用 测试 */
++ (void)regexUseForGetHTMLInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END
