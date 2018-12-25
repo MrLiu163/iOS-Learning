@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 含中文字符串转Unicode */
 + (NSString *)transformToUnicodeFromChineseCharacterStr:(NSString *)characterStr;
 
+/** 检测身份证号码合法性 */
++ (BOOL)checkIdentityCardNumberWhetherReally:(NSString *)identityCardNumber;
+
 @end
 
 NS_ASSUME_NONNULL_END

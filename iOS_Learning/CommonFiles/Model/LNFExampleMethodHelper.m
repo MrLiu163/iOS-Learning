@@ -37,4 +37,26 @@
     kLNFLog(@"origin:%@\ndecode:%@", originalStr);
 }
 
+/** 正则表达式使用 测试 */
++ (void)regexUseForGetHTMLInfo
+{
+    NSString *htmlStr = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MVHTML" ofType:@"txt"] encoding:NSUTF8StringEncoding error:nil];
+    NSError *error = nil;
+    NSRegularExpression *regexRegex_Labels = [NSRegularExpression regularExpressionWithPattern:@"<a data-res-action[^>]+>" options:NSRegularExpressionCaseInsensitive error:&error];
+    // /<.*>/   /\b([a-z]+) \1\b/
+    NSArray<NSTextCheckingResult *> *resultList_Labels = [regexRegex_Labels matchesInString:htmlStr options:0 range:NSMakeRange(0, [htmlStr length])];
+    for (NSTextCheckingResult *result_Labels in resultList_Labels) {
+        NSString *getStr_Labels = [htmlStr substringWithRange:result_Labels.range];
+        NSRegularExpression *regexRegex_Title = [NSRegularExpression regularExpressionWithPattern:@"title=\"[^<>\"]+\"" options:NSRegularExpressionCaseInsensitive error:&error];
+        // /<.*>/   /\b([a-z]+) \1\b/
+        NSTextCheckingResult *result_Title = [regexRegex_Title firstMatchInString:getStr_Labels options:0 range:NSMakeRange(0, [getStr_Labels length])];
+        NSString *getStr_Title = [getStr_Labels substringWithRange:result_Title.range];
+        NSRegularExpression *regexRegex_Href = [NSRegularExpression regularExpressionWithPattern:@"href=\"[^<>\"]+\"" options:NSRegularExpressionCaseInsensitive error:&error];
+        // /<.*>/   /\b([a-z]+) \1\b/
+        NSTextCheckingResult *result_Href = [regexRegex_Href firstMatchInString:getStr_Labels options:0 range:NSMakeRange(0, [getStr_Labels length])];
+        NSString *getStr_Href = [getStr_Labels substringWithRange:result_Href.range];
+        kLNFLog(@"---->>>>%@", getStr_Labels);
+    }
+}
+
 @end
