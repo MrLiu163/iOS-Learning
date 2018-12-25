@@ -19,6 +19,9 @@
 /** 下载WEB视频 */
 + (void)downloadWEBVideoFilesFromTextURLs;
 
+/** 直接下载可用链接视频 */
++ (void)downloadVideoFilesDirectFromTextURLs;
+
 /** 分解VideoHTML获取标签内容到Text */
 + (void)divideYouVideoHTMLContentIntoTextFiles;
 

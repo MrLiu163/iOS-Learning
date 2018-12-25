@@ -251,6 +251,71 @@
     [childDownloadQueue addOperations:blockOperationList waitUntilFinished:NO];
 }
 
+/** 直接下载可用链接视频 */
++ (void)downloadVideoFilesDirectFromTextURLs
+{
+    NSArray<NSString *> *videoOriginLinkList = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"WEBVideoList" ofType:@"txt"]];
+    NSMutableArray<NSString *> *linkList = [NSMutableArray array];
+    NSMutableArray<NSString *> *nameList = [NSMutableArray array];
+    for (NSInteger i = 0; i < videoOriginLinkList.count; i++) {
+        NSString *originLinkStr = videoOriginLinkList[i];
+        
+        NSArray<NSString *> *components_00 = [originLinkStr componentsSeparatedByString:@"|"];
+        NSString *nameStr = components_00.firstObject;
+        NSString *linkStr = components_00.lastObject;
+        [linkList addObject:linkStr];
+        [nameList addObject:nameStr];
+    }
+    NSMutableArray<NSBlockOperation *> *blockOperationList = [NSMutableArray array];
+    for (NSInteger i = 0; i < linkList.count; i++) {
+        NSString *downloadStr = linkList[i];
+        NSBlockOperation *tempBlockOperation = [NSBlockOperation blockOperationWithBlock:^{
+            
+            NSString *indexStr = [NSString stringWithFormat:@"%zd", i];
+            NSString *filePath = [kLNFSanboxDirectoriesPath_Caches stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4", nameList[i] ? : indexStr]];
+            BOOL isFileExist = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+            if (!isFileExist) {
+                if (downloadStr.length) {
+                    dispatch_semaphore_t semaphore_download = dispatch_semaphore_create(0);
+                    __block NSInteger logFlag = 0;
+                    [[LNFNetworking shareInstance] downloadFileWithRequestUrl:downloadStr destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+                        NSString *filePath = [kLNFSanboxDirectoriesPath_Caches stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4", nameList[i] ? : indexStr]];
+                        NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+                        return fileURL;
+                    } progress:^(NSProgress * _Nullable downloadProgress) {
+                        logFlag += 1;
+                        if (100 == logFlag) {
+                            kLNFLog(@"----%@>>>>已完成 %.2f，%.2fM，共%.2fM", nameList[i], downloadProgress.completedUnitCount / 1.0 / downloadProgress.totalUnitCount, downloadProgress.completedUnitCount / 1.0 / 1000 / 1000, downloadProgress.totalUnitCount/ 1.0 / 1000 / 1000);
+                            logFlag = 0;
+                        }
+                    } completion:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+                        if (error) {
+                            kLNFLog(@"----%@>>>>%@", nameList[i], @"下载出错");
+                        }
+                        dispatch_semaphore_signal(semaphore_download);
+                    }];
+                    dispatch_semaphore_wait(semaphore_download, DISPATCH_TIME_FOREVER);
+                } else {
+                    kLNFLog(@"----%@>>>>%@", nameList[i], @"未获取到链接");
+                }
+            } else {
+                kLNFLog(@"----%@>>>>%@", nameList[i], @"文件已经下载");
+            }
+        }];
+        [blockOperationList addObject:tempBlockOperation];
+    }
+    
+    NSOperationQueue *childDownloadQueue = [[NSOperationQueue alloc] init];
+    for (int i = 0; i < blockOperationList.count; i++) {
+        if (i < blockOperationList.count - 1) {
+            NSBlockOperation *blockOperation_1 = blockOperationList[i];
+            NSBlockOperation *blockOperation_2 = blockOperationList[i + 1];
+            [blockOperation_2 addDependency:blockOperation_1];
+        }
+    }
+    [childDownloadQueue addOperations:blockOperationList waitUntilFinished:NO];
+}
+
 /** 分解HTML获取标签内容到Text */
 + (void)divideYouVideoHTMLContentIntoTextFiles
 {
