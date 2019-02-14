@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 检测身份证号码合法性 */
 + (BOOL)checkIdentityCardNumberWhetherReally:(NSString *)identityCardNumber;
 
+/** 将数组写入到一个Text文件 fileName 格式 xxx.xxx */
++ (void)writeToFileWithArray:(NSArray *)aArray fileName:(NSString *)fileName;
+
 @end
 
 NS_ASSUME_NONNULL_END

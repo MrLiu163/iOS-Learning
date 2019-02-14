@@ -154,6 +154,7 @@
 + (void)downloadWEBVideoFilesFromTextURLs
 {
     NSArray<NSString *> *videoOriginLinkList = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"WEBVideoList" ofType:@"txt"]];
+    NSDictionary *impStrDict = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StrInfo" ofType:@"plist"]];
     NSMutableArray<NSString *> *detailInfoLinkList = [NSMutableArray array];
     NSMutableArray<NSString *> *idList = [NSMutableArray array];
     NSMutableArray<NSString *> *nameList = [NSMutableArray array];
@@ -163,7 +164,7 @@
         NSString *idStr = components_getId.lastObject;
         NSArray<NSString *> *components_getName = [originLinkStr componentsSeparatedByString:@"|"];
         NSString *nameStr = components_getName.firstObject;
-        NSString *detailInfoStr = [NSString stringWithFormat:@"#STR000#%@", idStr ? : @""]; // Combine Video Info Url
+        NSString *detailInfoStr = [NSString stringWithFormat:@"%@%@%@", impStrDict[@"STR000"], idStr ? : @"", impStrDict[@"STR001"]]; // Combine Video Info Url
         [detailInfoLinkList addObject:detailInfoStr];
         [idList addObject:idStr];
         [nameList addObject:nameStr];
@@ -181,7 +182,7 @@
                 NSString *dataStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
                 NSArray<NSString *> *urlComponents = [dataStr componentsSeparatedByString:@"&"];
                 for (NSString *targetStr in urlComponents) {
-                    if ([targetStr hasPrefix:@"#STR001#"]) { // Find Target String
+                    if ([targetStr hasPrefix:impStrDict[@"STR002"]]) { // Find Target String
                         NSString *mapInfoStr = [targetStr componentsSeparatedByString:@"="].lastObject;
                         mapInfoStr = [mapInfoStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
                         NSMutableArray<NSDictionary *> *videoInfoList = [NSMutableArray array];

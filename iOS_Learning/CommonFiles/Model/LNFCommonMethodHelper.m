@@ -150,4 +150,14 @@
     }
 }
 
+/** 将数组写入到一个Text文件 fileName 格式 xxx.xxx */
++ (void)writeToFileWithArray:(NSArray *)aArray fileName:(NSString *)fileName
+{
+    NSString *filePath = [kLNFSanboxDirectoriesPath_Caches stringByAppendingPathComponent:fileName];
+    NSString *descriptionStr = aArray.description;
+    // 经过description转化后中文会变为unicode编码
+    descriptionStr = [LNFCommonMethodHelper transformToChineseCharacterFromUnicodeStr:descriptionStr];
+    [descriptionStr writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+}
+
 @end
