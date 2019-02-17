@@ -11,6 +11,7 @@
 #import "LNFPasswordGenerateVc.h"
 #import "LNFPhotoLibraryPhotoAlbumListVc.h"
 #import "LNFLoadPictureBySemaphoreVc.h"
+#import "LNFLetterToMovieVc.h"
 
 #define kLNFMainItemName_ChangeBaseUrl                      @"Change BaseUrl"
 #define kLNFMainItemName_BezierRoundAnimation               @"贝塞尔切环动画"
@@ -25,6 +26,7 @@
 #define kLNFMainItemName_StringEncodeDecode                 @"字符UTF编码解码"
 #define kLNFMainItemName_DivideHTMLLabel                    @"分解HTML标签"
 #define kLNFMainItemName_DirectDownloadVideo                @"直接下载视频"
+#define kLNFMainItemName_LetterToMovie                      @"致电影的一封情书"
 @interface LNFMainModuleVc ()
 
 @property (nonatomic, strong) LNFTableViewDataSourceHelper *dataSourceHelper;
@@ -48,7 +50,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles, kLNFMainItemName_DownloadNetVideo, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles, kLNFMainItemName_DownloadNetVideo, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -120,6 +122,10 @@
 //        [LNFDownloadManager divideWangMVHTMLContentIntoTextFiles];
     } else if ([itemName isEqualToString:kLNFMainItemName_DirectDownloadVideo]) {
         [LNFDownloadManager downloadVideoFilesDirectFromTextURLs];
+    } else if ([itemName isEqualToString:kLNFMainItemName_LetterToMovie]) {
+        LNFLetterToMovieVc *letterToMovieVc = [[LNFLetterToMovieVc alloc] init];
+        letterToMovieVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:letterToMovieVc animated:YES];
     }
 }
 

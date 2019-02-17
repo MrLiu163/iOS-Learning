@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		472B7A4821C1244F0035EBEB /* MVHTML.txt in Resources */ = {isa = PBXBuildFile; fileRef = 472B7A4721C1244F0035EBEB /* MVHTML.txt */; };
+		47B2143222195B27002D6399 /* LNFLetterToMovieVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B2143122195B27002D6399 /* LNFLetterToMovieVc.m */; };
+		47B21436221960D0002D6399 /* MovieListResult.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47B21435221960D0002D6399 /* MovieListResult.plist */; };
 		47B4AC7D20E4B9EB005AD68B /* LNFPasswordGenerateVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */; };
 		47B4AC7E20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */; };
 		47B94FF0218001090086499B /* LNFLoadPictureBySemaphoreVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FEF218001090086499B /* LNFLoadPictureBySemaphoreVc.m */; };
@@ -61,6 +63,9 @@
 
 /* Begin PBXFileReference section */
 		472B7A4721C1244F0035EBEB /* MVHTML.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MVHTML.txt; sourceTree = "<group>"; };
+		47B2143022195B27002D6399 /* LNFLetterToMovieVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFLetterToMovieVc.h; sourceTree = "<group>"; };
+		47B2143122195B27002D6399 /* LNFLetterToMovieVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFLetterToMovieVc.m; sourceTree = "<group>"; };
+		47B21435221960D0002D6399 /* MovieListResult.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MovieListResult.plist; sourceTree = "<group>"; };
 		47B4AC7A20E4B9EB005AD68B /* LNFPasswordGenerateVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFPasswordGenerateVc.h; sourceTree = "<group>"; };
 		47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFPasswordGenerateVc.m; sourceTree = "<group>"; };
 		47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LNFPasswordGenerateVc.xib; sourceTree = "<group>"; };
@@ -253,6 +258,8 @@
 				EA3D3E08213D1BA3000D7DAC /* LNFPhotoLibraryPhotoShowAndSelectVc.m */,
 				47B94FEE218001090086499B /* LNFLoadPictureBySemaphoreVc.h */,
 				47B94FEF218001090086499B /* LNFLoadPictureBySemaphoreVc.m */,
+				47B2143022195B27002D6399 /* LNFLetterToMovieVc.h */,
+				47B2143122195B27002D6399 /* LNFLetterToMovieVc.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -382,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				EA3113B91FD6611700BF1A77 /* BaseUrl.plist */,
+				47B21435221960D0002D6399 /* MovieListResult.plist */,
 			);
 			path = PlistFiles;
 			sourceTree = "<group>";
@@ -491,6 +499,7 @@
 				47CEA62021B9737300C7D86C /* VideoHTML.txt in Resources */,
 				EA3113681FD63BCB00BF1A77 /* Assets.xcassets in Resources */,
 				47BED12C21A8FA9800B258AB /* MVList.txt in Resources */,
+				47B21436221960D0002D6399 /* MovieListResult.plist in Resources */,
 				EA3113931FD6499300BF1A77 /* common_right_arrow@3x.png in Resources */,
 				EA3113941FD6499300BF1A77 /* check_notchoose@3x.png in Resources */,
 				472B7A4821C1244F0035EBEB /* MVHTML.txt in Resources */,
@@ -575,6 +584,7 @@
 				EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */,
 				47B94FF9218007C60086499B /* LNFPictureLoadShowCollectionCell.m in Sources */,
 				EA3D3E0C213D1CC2000D7DAC /* LNFPhotoShowCollectionViewCell.m in Sources */,
+				47B2143222195B27002D6399 /* LNFLetterToMovieVc.m in Sources */,
 				EA3D3DFD213D19CD000D7DAC /* LNFPhotoLibraryPhotoAlbumListVc.m in Sources */,
 				EA3113871FD6483E00BF1A77 /* LNFBaseVc.m in Sources */,
 				EA3D3E12213D221A000D7DAC /* UIImage+LNFCategory.m in Sources */,
