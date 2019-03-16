@@ -142,6 +142,7 @@
         [datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.and.top.and.bottom.mas_equalTo(self.view);
         }];
+        datePicker.datePickerType = LNFCustomDatePickerTypeDefault;
         self.customDatePicker = datePicker;
     } else {
         self.customDatePicker.hidden = NO;

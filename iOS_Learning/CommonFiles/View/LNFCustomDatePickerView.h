@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, LNFCustomDatePickerType) {
-    LNFCustomDatePickerTypeDefault = 0, // 默认就是年月日选择
+    LNFCustomDatePickerTypeDefault = 0, // 默认就是年月日选择, 不限制选择以后
 };
 
 @interface LNFCustomDatePickerView : UIView

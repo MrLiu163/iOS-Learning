@@ -20,6 +20,7 @@
 @property (nonatomic, assign) NSInteger currentMonthValue;
 @property (nonatomic, assign) NSInteger currentDayValue;
 @property (nonatomic, assign) NSInteger baseYearValue; // 最早到哪一年
+@property (nonatomic, strong) NSMutableDictionary *componentSelectIndexInfoDict; // 每一束行选中的下标
 
 @end
 
@@ -132,9 +133,6 @@
         make.bottom.mas_equalTo(bottomView.mas_top);
     }];
     self.datePickerView = datePickerView;
-    
-    // 初始化默认显示
-    [self configureDefaultDatePickerDataSource];
 }
 
 #pragma mark - Private Method
@@ -167,8 +165,9 @@
     
     NSMutableArray<NSArray<NSString *> *> *tempDataSourceList = [NSMutableArray array];
     // 当前需要显示的所有年份（只到当前年份，最小年1）
+    NSInteger forMax_year = thisYearValue + 100;
     NSMutableArray<NSString *> *tempYearArr = [NSMutableArray array];
-    for (NSInteger i = self.baseYearValue; i <= thisYearValue; i++) {
+    for (NSInteger i = self.baseYearValue; i <= forMax_year; i++) {
         NSInteger yearValue = i;
         NSString *yearStr = [NSString stringWithFormat:@"%zd年", yearValue];
         [tempYearArr addObject:yearStr];
@@ -176,24 +175,58 @@
     [tempDataSourceList addObject:tempYearArr];
     
     // 当前要显示的所有月份
+    NSInteger forMax_month = 12;
     NSMutableArray *tempMonthArr = [NSMutableArray array];
-    for (NSInteger i = 1; i <= thisMonthValue; i++) {
+    for (NSInteger i = 1; i <= forMax_month; i++) {
         NSString *monthStr = [NSString stringWithFormat:@"%02zd月", i];
         [tempMonthArr addObject:monthStr];
     }
     [tempDataSourceList addObject:tempMonthArr];
     
     // 当前要显示的所有天份
-    NSMutableArray *tempDayArr = [NSMutableArray array];
-    for (int i = 1; i <= thisDayValue; i++) {
-        NSString *dayStr = [NSString stringWithFormat:@"%02d日", i];
-        [tempDayArr addObject:dayStr];
-    }
+    NSArray<NSString *> *tempDayArr = [self acquireDayListWithMonthValue:thisMonthValue yearValue:thisYearValue];
     [tempDataSourceList addObject:tempDayArr];
     
     // 刷新PickerView
     self.pickerDataList = tempDataSourceList;
     [self.datePickerView reloadAllComponents];
+    
+    // 默认选中当前年月日
+    [self.datePickerView selectRow:thisYearValue - self.baseYearValue inComponent:0 animated:NO];
+    [self.datePickerView selectRow:thisMonthValue - 1 inComponent:1 animated:NO];
+    [self.datePickerView selectRow:thisDayValue - 1 inComponent:2 animated:NO];
+}
+
+// 根据年份、月份获取对应月天数
+- (NSArray<NSString *> *)acquireDayListWithMonthValue:(NSInteger)monthValue yearValue:(NSInteger)yearValue
+{
+    NSMutableArray<NSString *> *tempDayList = [NSMutableArray array];
+    NSInteger forMax = 0;
+    switch (monthValue) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            forMax = 31;
+            break;
+        case 2:
+            if (((0 == yearValue % 4) && (0 != yearValue % 100)) || (0 == yearValue % 400)) {
+                forMax = 29;
+            } else {
+                forMax = 28;
+            }
+            break;
+        default:
+            forMax = 30;
+            break;
+    }
+    for (NSInteger i = 1; i <= forMax; i++) {
+        [tempDayList addObject:[NSString stringWithFormat:@"%zd日", i]];
+    }
+    return tempDayList;
 }
 
 #pragma mark - UIPickerViewDataSource
@@ -251,7 +284,31 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (LNFCustomDatePickerTypeDefault == self.datePickerType) {
-        
+        if (0 == component) { // 年
+            NSInteger selectIndex_Month = [pickerView selectedRowInComponent:1];
+            NSInteger monthValue = [self.pickerDataList[1][selectIndex_Month] integerValue];
+            NSInteger yearValue = [self.pickerDataList[component][row] integerValue];
+            NSMutableArray<NSArray<NSString *> *> *tempDataSourceList = [NSMutableArray arrayWithArray:self.pickerDataList];
+            NSArray<NSString *> *dayList = [self acquireDayListWithMonthValue:monthValue yearValue:yearValue];
+            [tempDataSourceList replaceObjectAtIndex:2 withObject:dayList];
+            // 刷新日
+            self.pickerDataList = tempDataSourceList;
+            [pickerView reloadComponent:2];
+        } else if (1 == component) { // 月
+            NSInteger monthValue = [self.pickerDataList[component][row] integerValue];
+            NSInteger selectIndex_Year = [pickerView selectedRowInComponent:0];
+            NSInteger yearValue = [self.pickerDataList[0][selectIndex_Year] integerValue];
+            NSMutableArray<NSArray<NSString *> *> *tempDataSourceList = [NSMutableArray arrayWithArray:self.pickerDataList];
+            NSArray<NSString *> *dayList = [self acquireDayListWithMonthValue:monthValue yearValue:yearValue];
+            [tempDataSourceList replaceObjectAtIndex:2 withObject:dayList];
+            // 刷新日
+            self.pickerDataList = tempDataSourceList;
+            [pickerView reloadComponent:2];
+        }
+        NSString *yearStr = self.pickerDataList[0][[pickerView selectedRowInComponent:0]];
+        NSString *monthStr = self.pickerDataList[1][[pickerView selectedRowInComponent:1]];
+        NSString *dayStr = self.pickerDataList[2][[pickerView selectedRowInComponent:2]];
+        self.titleLabel.text = [NSString stringWithFormat:@"%@%@%@", yearStr, monthStr, dayStr];
     }
 }
 
@@ -260,7 +317,9 @@
 - (void)setDatePickerType:(LNFCustomDatePickerType)datePickerType
 {
     _datePickerType = datePickerType;
-    
+    if (LNFCustomDatePickerTypeDefault == datePickerType) {
+        [self configureDefaultDatePickerDataSource];
+    }
 }
 
 @end
