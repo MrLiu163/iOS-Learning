@@ -27,11 +27,13 @@
 #define kLNFMainItemName_DivideHTMLLabel                    @"分解HTML标签"
 #define kLNFMainItemName_DirectDownloadVideo                @"直接下载视频"
 #define kLNFMainItemName_LetterToMovie                      @"致电影的一封情书"
+#define kLNFMainItemName_CustomPickerView                   @"自定义DatePicker"
 @interface LNFMainModuleVc ()
 
 @property (nonatomic, strong) LNFTableViewDataSourceHelper *dataSourceHelper;
 @property (nonatomic, strong) LNFTableViewDelegateHelper *delegateHepler;
 @property (nonatomic, strong) UITableView *mainItemTable;
+@property (nonatomic, strong) LNFCustomDatePickerView *customDatePicker;
 
 @end
 
@@ -50,7 +52,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles, kLNFMainItemName_DownloadNetVideo, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles, kLNFMainItemName_DownloadNetVideo, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -126,6 +128,23 @@
         LNFLetterToMovieVc *letterToMovieVc = [[LNFLetterToMovieVc alloc] init];
         letterToMovieVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:letterToMovieVc animated:YES];
+    } else if ([itemName isEqualToString:kLNFMainItemName_CustomPickerView]) {
+        [self addCustomDatePickerView];
+    }
+}
+
+// 添加自定义DatePicker视图
+- (void)addCustomDatePickerView
+{
+    if (!self.customDatePicker) {
+        LNFCustomDatePickerView *datePicker = [[LNFCustomDatePickerView alloc] initWithFrame:CGRectZero];
+        [self.view addSubview:datePicker];
+        [datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.and.right.and.top.and.bottom.mas_equalTo(self.view);
+        }];
+        self.customDatePicker = datePicker;
+    } else {
+        self.customDatePicker.hidden = NO;
     }
 }
 
