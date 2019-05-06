@@ -12,6 +12,7 @@
 #import "LNFPhotoLibraryPhotoAlbumListVc.h"
 #import "LNFLoadPictureBySemaphoreVc.h"
 #import "LNFLetterToMovieVc.h"
+#import "LNFShakeDiceTestVc.h"
 
 #define kLNFMainItemName_ChangeBaseUrl                      @"Change BaseUrl"
 #define kLNFMainItemName_BezierRoundAnimation               @"贝塞尔切环动画"
@@ -28,6 +29,7 @@
 #define kLNFMainItemName_DirectDownloadVideo                @"直接下载视频"
 #define kLNFMainItemName_LetterToMovie                      @"致电影的一封情书"
 #define kLNFMainItemName_CustomPickerView                   @"自定义DatePicker"
+#define kLNFMainItemName_ShakeDiceTest                      @"摇骰子实验"
 @interface LNFMainModuleVc ()
 
 @property (nonatomic, strong) LNFTableViewDataSourceHelper *dataSourceHelper;
@@ -52,7 +54,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles, kLNFMainItemName_DownloadNetVideo, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles, kLNFMainItemName_DownloadNetVideo, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView, kLNFMainItemName_ShakeDiceTest];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -130,6 +132,10 @@
         [self.navigationController pushViewController:letterToMovieVc animated:YES];
     } else if ([itemName isEqualToString:kLNFMainItemName_CustomPickerView]) {
         [self addCustomDatePickerView];
+    } else if ([itemName isEqualToString:kLNFMainItemName_ShakeDiceTest]) { // 摇骰子实验
+        LNFShakeDiceTestVc *shakeDiceTestVc = [[LNFShakeDiceTestVc alloc] init];
+        shakeDiceTestVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:shakeDiceTestVc animated:YES];
     }
 }
 

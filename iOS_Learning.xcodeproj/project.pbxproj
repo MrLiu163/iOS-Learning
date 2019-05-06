@@ -17,6 +17,8 @@
 		47B94FF6218005530086499B /* LNFCollectionViewDelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FF5218005530086499B /* LNFCollectionViewDelegateHelper.m */; };
 		47BED12A21A8ED2B00B258AB /* SongList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47BED12921A8ED2B00B258AB /* SongList.txt */; };
 		47BED12C21A8FA9800B258AB /* MVList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47BED12B21A8FA9800B258AB /* MVList.txt */; };
+		47CD794522800FB300D6A260 /* LNFShakeDiceTestVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CD794322800FB300D6A260 /* LNFShakeDiceTestVc.m */; };
+		47CD794622800FB300D6A260 /* LNFShakeDiceTestVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47CD794422800FB300D6A260 /* LNFShakeDiceTestVc.xib */; };
 		47CEA61B21B8FD3900C7D86C /* LNFCommonMethodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CEA61A21B8FD3900C7D86C /* LNFCommonMethodHelper.m */; };
 		47CEA61E21B92D9400C7D86C /* LNFExampleMethodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CEA61D21B92D9400C7D86C /* LNFExampleMethodHelper.m */; };
 		47CEA62021B9737300C7D86C /* VideoHTML.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47CEA61F21B9737300C7D86C /* VideoHTML.txt */; };
@@ -82,6 +84,9 @@
 		47B94FF5218005530086499B /* LNFCollectionViewDelegateHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFCollectionViewDelegateHelper.m; sourceTree = "<group>"; };
 		47BED12921A8ED2B00B258AB /* SongList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SongList.txt; sourceTree = "<group>"; };
 		47BED12B21A8FA9800B258AB /* MVList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MVList.txt; sourceTree = "<group>"; };
+		47CD794222800FB300D6A260 /* LNFShakeDiceTestVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFShakeDiceTestVc.h; sourceTree = "<group>"; };
+		47CD794322800FB300D6A260 /* LNFShakeDiceTestVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFShakeDiceTestVc.m; sourceTree = "<group>"; };
+		47CD794422800FB300D6A260 /* LNFShakeDiceTestVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LNFShakeDiceTestVc.xib; sourceTree = "<group>"; };
 		47CEA61921B8FD3900C7D86C /* LNFCommonMethodHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFCommonMethodHelper.h; sourceTree = "<group>"; };
 		47CEA61A21B8FD3900C7D86C /* LNFCommonMethodHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFCommonMethodHelper.m; sourceTree = "<group>"; };
 		47CEA61C21B92D9400C7D86C /* LNFExampleMethodHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFExampleMethodHelper.h; sourceTree = "<group>"; };
@@ -302,6 +307,9 @@
 				47B94FEF218001090086499B /* LNFLoadPictureBySemaphoreVc.m */,
 				47B2143022195B27002D6399 /* LNFLetterToMovieVc.h */,
 				47B2143122195B27002D6399 /* LNFLetterToMovieVc.m */,
+				47CD794222800FB300D6A260 /* LNFShakeDiceTestVc.h */,
+				47CD794322800FB300D6A260 /* LNFShakeDiceTestVc.m */,
+				47CD794422800FB300D6A260 /* LNFShakeDiceTestVc.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -513,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA3113961FD6499300BF1A77 /* common_search@3x.png in Resources */,
+				47CD794622800FB300D6A260 /* LNFShakeDiceTestVc.xib in Resources */,
 				EA3113921FD6499300BF1A77 /* common_check_choose@3x.png in Resources */,
 				EA31139B1FD6499300BF1A77 /* common_loadingHud@2x.png in Resources */,
 				EA3D3E14213D2489000D7DAC /* common_picture_placeholder@3x.png in Resources */,
@@ -620,6 +629,7 @@
 				47B94FF6218005530086499B /* LNFCollectionViewDelegateHelper.m in Sources */,
 				EA3113AC1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m in Sources */,
 				47CEA61E21B92D9400C7D86C /* LNFExampleMethodHelper.m in Sources */,
+				47CD794522800FB300D6A260 /* LNFShakeDiceTestVc.m in Sources */,
 				EA3113811FD6433500BF1A77 /* LNFAppHelper.m in Sources */,
 				EA3113A31FD64B6000BF1A77 /* LNFMainModuleVc.m in Sources */,
 				47B4AC7D20E4B9EB005AD68B /* LNFPasswordGenerateVc.m in Sources */,

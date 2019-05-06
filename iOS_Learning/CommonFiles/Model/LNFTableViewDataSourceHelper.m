@@ -65,10 +65,10 @@
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
         NSObject *item = [self itemAtIndexPath:indexPath];
-        if (self.configureCellBlock) {
-            self.configureCellBlock(cell, item);
-        } else if (self.configureCellBlockAndIndexPath) {
+        if (self.configureCellBlockAndIndexPath) {
             self.configureCellBlockAndIndexPath(cell, item, indexPath);
+        } else if (self.configureCellBlock) {
+            self.configureCellBlock(cell, item);
         }
         return cell;
     }
