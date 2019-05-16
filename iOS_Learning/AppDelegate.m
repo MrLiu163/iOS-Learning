@@ -22,6 +22,9 @@
     [self.window makeKeyAndVisible];
     self.window.tag = kLNFKeyWindowTag;
     
+    // 开启电池电量电量监控
+    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    
     // 电池条颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
