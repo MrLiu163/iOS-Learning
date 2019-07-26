@@ -19,6 +19,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** 四边宽度 */
 @property (nonatomic, assign) CGFloat borderWidth;
 
+@property (assign, nonatomic) CGFloat lnf_x;
+@property (assign, nonatomic) CGFloat lnf_y;
+@property (assign, nonatomic) CGFloat lnf_c_x;
+@property (assign, nonatomic) CGFloat lnf_c_y;
+@property (assign, nonatomic) CGFloat lnf_w;
+@property (assign, nonatomic) CGFloat lnf_h;
+@property (assign, nonatomic) CGSize lnf_size;
+@property (assign, nonatomic) CGPoint lnf_origin;
+
 @end
 
 NS_ASSUME_NONNULL_END

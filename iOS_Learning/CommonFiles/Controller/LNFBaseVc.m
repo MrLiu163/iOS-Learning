@@ -25,7 +25,7 @@
 
 - (void)commonConfigure
 {
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO; // 默认YES
     self.view.backgroundColor = [UIColor whiteColor];
     if (self.navigationController.viewControllers.count > 1) {
         [self addBackBtnItemWithImageName:kLNFPictureName_CommonLeftBackNavItem];
