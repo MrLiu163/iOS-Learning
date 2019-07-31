@@ -103,12 +103,12 @@
     NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePath];
     [fileHandle seekToEndOfFile]; // 将节点调到文件末尾
     
-    NSString *headerStr = @"Name,Gender,Age,Job,Salary,Hobby";;
+    NSString *headerStr = @"Name,Gender,Age";
     headerStr = [headerStr stringByAppendingString:@"\n"]; // 注意换行
     NSData *headerStrData = [headerStr dataUsingEncoding:NSUTF8StringEncoding];
     [fileHandle writeData:headerStrData]; // 写入标题数据
     NSInteger forCount = 50;
-    NSString *contentStr = @"Elon Musk,Man,Unknown,CEO Of Tesla And SpaceX,Unknown,Universe And Electric";;
+    NSString *contentStr = @"A,Man,20";
     contentStr = [contentStr stringByAppendingString:@"\n"]; // 注意换行
     for (int i = 0; i < forCount; i++) { // 遍历写入所有数据
         NSData *stringData = [contentStr dataUsingEncoding:NSUTF8StringEncoding];

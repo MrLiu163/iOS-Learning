@@ -70,49 +70,31 @@
 // 获取手机设备和App信息
 - (void)acquireDeviceAndAppInfo
 {
-    // 设备
-    UIDevice *device = [UIDevice currentDevice];
     // 设备别名
-    NSString *device_name = [device name];
+    NSString *device_name = [LNFContextInfoHelper deviceName];
     // 设备系统名称
-    NSString *device_sysName = [device systemName];
+    NSString *device_sysName = [LNFContextInfoHelper deviceSystemName];
     // 设备系统版本
-    NSString *device_sysVersion = [device systemVersion];
+    NSString *device_sysVersion = [LNFContextInfoHelper deviceSystemVersion];
     // 设备型号
-    NSString *device_model = [device model];
+    NSString *device_model = [LNFContextInfoHelper deviceModel];
     // 设备地方型号（国际化区域名称）
-    NSString *device_localModel = [device localizedModel];
+    NSString *device_localModel = [LNFContextInfoHelper deviceLocalizedModel];
     // 电池电量
-    UIDeviceBatteryState batteryState = [UIDevice currentDevice].batteryState; // 模拟器一般就是UIDeviceBatteryStateUnknown
-    NSString *batteryStateStr = @"";
-    if (UIDeviceBatteryStateUnknown != batteryState) { // 不是模拟器或者坏手机
-        float batteryLevel = [UIDevice currentDevice].batteryLevel; // 0.0 ~ 1.0
-        batteryStateStr = [NSString stringWithFormat:@"%@", @(batteryLevel)];
-        if (UIDeviceBatteryStateCharging == batteryState) { // 不在充电状态下
-            batteryStateStr = [batteryStateStr stringByAppendingString:@"->正在充电"];
-        } else if (UIDeviceBatteryStateFull == batteryState) {
-            batteryStateStr = [batteryStateStr stringByAppendingString:@"->正在充电，已充满"];
-        }
-    } else {
-        batteryStateStr = @"无法识别";
-    }
+    NSString *batteryStateStr = [LNFContextInfoHelper deviceBatteryLevel];
     
-    // App包信息
-    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     // App名称
-    NSString *app_name = [infoDict objectForKey:@"CFBundleDisplayName"];
+    NSString *app_name = [LNFContextInfoHelper appDisplayName];
     // App版本
-    NSString *app_version = [infoDict objectForKey:@"CFBundleShortVersionString"];
+    NSString *app_version = [LNFContextInfoHelper appVersion];
     // App Build版本
-    NSString *app_build = [infoDict objectForKey:@"CFBundleVersion"];
+    NSString *app_build = [LNFContextInfoHelper appBuild];
     
-    // 屏幕
-    UIScreen *screen = [UIScreen mainScreen];
     // 屏幕大小
-    CGSize screenSize = [screen bounds].size;
+    CGSize screenSize = [LNFContextInfoHelper screenSize];
     NSString *screenSizeStr = [NSString stringWithFormat:@"%@x%@", @(screenSize.width), @(screenSize.height)];
     // 屏幕像素密度
-    CGFloat screenScale = [screen scale];
+    CGFloat screenScale = [LNFContextInfoHelper screenScale];
     NSString *screenScaleStr = [NSString stringWithFormat:@"@%@x", @(screenScale)];
     
     // 左边右边数据源
