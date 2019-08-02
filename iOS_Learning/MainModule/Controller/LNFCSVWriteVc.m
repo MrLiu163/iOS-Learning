@@ -26,10 +26,16 @@
     self.navigationItem.title = @"生成csv文件";
     
     // 请求数据生成csv文件
-    [self requestData];
+//    [self requestData];
     
-    // 生成csv文件示例
-//    [self creatCSVExample];
+    // 生成csv文件示例，使用FileHandle
+//    [self creatCSVExampleByFileHandle];
+    
+    // 读取csv文件
+//    [self readCSVExample];
+    
+    // 创建csv文件，使用字符串直接写入write
+    [self creatCSVExampleByStringWrite];
 }
 
 // 请求数据，然后生成csv文件
@@ -85,8 +91,8 @@
     [fileHandle closeFile];
 }
 
-// 生成csv文件示例
-- (void)creatCSVExample
+// 生成csv文件示例，使用FileHandle
+- (void)creatCSVExampleByFileHandle
 {
     // 文件保存路径
     NSString *filePath = [@"/Users/<#userName#>/Desktop" stringByAppendingPathComponent:@"TestCSVFile.csv"];
@@ -117,6 +123,36 @@
     }
     
     [fileHandle closeFile];
+}
+
+// 读取csv文件示例
+- (void)readCSVExample
+{
+    NSString *filePath = [@"/Users/<#userName#>/Desktop" stringByAppendingPathComponent:@"TestCSVFile.csv"];
+    NSError *error = nil;
+    NSString *csvDataStr = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        kLNFLog(@"---->>>>%@", @"csv解析出现错误");
+    } else {
+        NSArray *csvDataList = [csvDataStr componentsSeparatedByString:@"\n"];
+        kLNFLog(@"---->>>>%@", csvDataList);
+    }
+}
+
+// 创建csv文件，使用字符串直接写入write
+- (void)creatCSVExampleByStringWrite
+{
+    NSString *filePath = [@"/Users/<#userName#>/Desktop" stringByAppendingPathComponent:@"TestCSVFile.csv"];
+    // ,(英文逗号)代表下一单元格 \n(换行)代表换行
+    NSString *writeStr = @"Name,Gender,Age\nB,Man,20\nB,Man,20\nC,Man,20\nD,Man,20";
+    NSError *error = nil;
+    [writeStr writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        kLNFLog(@"---->>>>%@", @"csv写入出现错误");
+    } else {
+        kLNFLog(@"---->>>>%@", @"csv写入成功");
+    }
+    
 }
 
 @end

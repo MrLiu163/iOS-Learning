@@ -18,6 +18,8 @@
 		47BED12A21A8ED2B00B258AB /* SongList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47BED12921A8ED2B00B258AB /* SongList.txt */; };
 		47BED12C21A8FA9800B258AB /* MVList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47BED12B21A8FA9800B258AB /* MVList.txt */; };
 		47C17A0A22E1C4BA00AA85E1 /* LNFDeleteStyleCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C17A0922E1C4BA00AA85E1 /* LNFDeleteStyleCollectionHeaderView.m */; };
+		47C5B3FB22F2AB4C00182516 /* LNFLocalHTMLFileShowVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C5B3FA22F2AB4C00182516 /* LNFLocalHTMLFileShowVc.m */; };
+		47C5B3FE22F2AD0300182516 /* GeneratePsw.html in Resources */ = {isa = PBXBuildFile; fileRef = 47C5B3FD22F2AD0300182516 /* GeneratePsw.html */; };
 		47CD794522800FB300D6A260 /* LNFShakeDiceTestVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CD794322800FB300D6A260 /* LNFShakeDiceTestVc.m */; };
 		47CD794622800FB300D6A260 /* LNFShakeDiceTestVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47CD794422800FB300D6A260 /* LNFShakeDiceTestVc.xib */; };
 		47CEA61B21B8FD3900C7D86C /* LNFCommonMethodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CEA61A21B8FD3900C7D86C /* LNFCommonMethodHelper.m */; };
@@ -92,6 +94,9 @@
 		47BED12B21A8FA9800B258AB /* MVList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MVList.txt; sourceTree = "<group>"; };
 		47C17A0822E1C4BA00AA85E1 /* LNFDeleteStyleCollectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFDeleteStyleCollectionHeaderView.h; sourceTree = "<group>"; };
 		47C17A0922E1C4BA00AA85E1 /* LNFDeleteStyleCollectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFDeleteStyleCollectionHeaderView.m; sourceTree = "<group>"; };
+		47C5B3F922F2AB4C00182516 /* LNFLocalHTMLFileShowVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFLocalHTMLFileShowVc.h; sourceTree = "<group>"; };
+		47C5B3FA22F2AB4C00182516 /* LNFLocalHTMLFileShowVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFLocalHTMLFileShowVc.m; sourceTree = "<group>"; };
+		47C5B3FD22F2AD0300182516 /* GeneratePsw.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GeneratePsw.html; sourceTree = "<group>"; };
 		47CD794222800FB300D6A260 /* LNFShakeDiceTestVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFShakeDiceTestVc.h; sourceTree = "<group>"; };
 		47CD794322800FB300D6A260 /* LNFShakeDiceTestVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFShakeDiceTestVc.m; sourceTree = "<group>"; };
 		47CD794422800FB300D6A260 /* LNFShakeDiceTestVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LNFShakeDiceTestVc.xib; sourceTree = "<group>"; };
@@ -212,6 +217,14 @@
 				472B7A4721C1244F0035EBEB /* MVHTML.txt */,
 			);
 			path = TextFiles;
+			sourceTree = "<group>";
+		};
+		47C5B3FC22F2ACF400182516 /* HTMLFiles */ = {
+			isa = PBXGroup;
+			children = (
+				47C5B3FD22F2AD0300182516 /* GeneratePsw.html */,
+			);
+			path = HTMLFiles;
 			sourceTree = "<group>";
 		};
 		47D461F4223C8E92009DEF90 /* View */ = {
@@ -338,6 +351,8 @@
 				47E66C6822A0C9710046DB8C /* LNFCollectionViewDeleteVc.m */,
 				47DFA20922EADB97002CD9D5 /* LNFCSVWriteVc.h */,
 				47DFA20A22EADB97002CD9D5 /* LNFCSVWriteVc.m */,
+				47C5B3F922F2AB4C00182516 /* LNFLocalHTMLFileShowVc.h */,
+				47C5B3FA22F2AB4C00182516 /* LNFLocalHTMLFileShowVc.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -365,6 +380,7 @@
 		EA31137A1FD6431700BF1A77 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				47C5B3FC22F2ACF400182516 /* HTMLFiles */,
 				47BED12821A8EA9500B258AB /* TextFiles */,
 				47E87A6E2189A0DC00ABC355 /* Tools */,
 				EA3113AF1FD6608A00BF1A77 /* Category */,
@@ -561,6 +577,7 @@
 				47CEA62021B9737300C7D86C /* VideoHTML.txt in Resources */,
 				EA3113681FD63BCB00BF1A77 /* Assets.xcassets in Resources */,
 				47BED12C21A8FA9800B258AB /* MVList.txt in Resources */,
+				47C5B3FE22F2AD0300182516 /* GeneratePsw.html in Resources */,
 				47B21436221960D0002D6399 /* MovieListResult.plist in Resources */,
 				EA3113931FD6499300BF1A77 /* common_right_arrow@3x.png in Resources */,
 				EA3113941FD6499300BF1A77 /* check_notchoose@3x.png in Resources */,
@@ -668,6 +685,7 @@
 				EA3113811FD6433500BF1A77 /* LNFAppHelper.m in Sources */,
 				47E16B1D22F19CE0005A59CB /* LNFContextInfoHelper.m in Sources */,
 				EA3113A31FD64B6000BF1A77 /* LNFMainModuleVc.m in Sources */,
+				47C5B3FB22F2AB4C00182516 /* LNFLocalHTMLFileShowVc.m in Sources */,
 				47B4AC7D20E4B9EB005AD68B /* LNFPasswordGenerateVc.m in Sources */,
 				47D46200223C92F7009DEF90 /* UIView+LNFCategory.m in Sources */,
 				EA3113A01FD64A9300BF1A77 /* LNFNavigationVc.m in Sources */,

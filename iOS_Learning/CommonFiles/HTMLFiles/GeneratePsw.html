@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+</head>
+<html>
+<body>
+<script>
+   /*
+    // [0,max]
+    var charType = Math.floor(Math.random()*(2+1));
+   
+    // 0-9 48-57
+    // A-Z 65-90
+    // a-z 97-122
+   
+    var numCharIndex = Math.floor(Math.random()*(57-48+1)+48);
+    var upperCharIndex = Math.floor(Math.random()*(90-65+1)+65);
+    var lowerCharIndex = Math.floor(Math.random()*(122-97+1)+97);
+    var numChar = String.fromCharCode(numCharIndex);
+    var upperChar = String.fromCharCode(upperCharIndex);
+    var lowerChar = String.fromCharCode(lowerCharIndex);
+    console.log(numCharIndex,upperCharIndex,lowerCharIndex);
+    console.log(numChar,upperChar,lowerChar);
+    */
+function generatePwdWithPwdType(pwdType) {
+   var pswStr = "";
+   var forNum = document.getElementById("number").value;
+   var insertStr = "";
+   if (3 == pwdType) {
+       insertStr = "-";
+   } else if (4 == pwdType) {
+       insertStr = "_";
+   }
+   for (var i = 0; i < forNum; i++) {
+       if (insertStr.length > 0) {
+           if ((0 == i % 3) && (0 != i)) {
+               pswStr = pswStr + insertStr;
+           }
+       }
+       var charType;
+       if (0 == pwdType) {
+           charType = 0;
+       } else if (1 == pwdType) {
+           charType = Math.floor(Math.random()*2)+1;
+       } else {
+           charType = Math.floor(Math.random()*(2+1));
+       }
+       var index,min,max;
+       if (0 == charType) { // 数字
+           min = 48;
+           max = 57;
+           index = Math.floor(Math.random()*(max-min+1)+min);
+       } else if (1 == charType) { // 大写字母
+           min = 65;
+           max = 90;
+           index = Math.floor(Math.random()*(max-min+1)+min);
+       } else if (2 == charType) { // 小写字母
+           min = 97;
+           max = 122;
+           index = Math.floor(Math.random()*(max-min+1)+min);
+       }
+       var pwdChar = String.fromCharCode(index);
+       pswStr = pswStr + pwdChar;
+   }
+   document.getElementById('showPwd').innerHTML=pswStr;
+   <!--    console.log(pswStr);-->
+   <!--    alert(pswStr);-->
+}
+
+function generatePwdWithJudgement() {
+   var pwdTypeStr = document.getElementById("pwdType").value;
+   var pwdTypeValue = parseInt(pwdTypeStr);
+   generatePwdWithPwdType(pwdTypeValue);
+}
+function plusNum() {
+   var numStr = document.getElementById("number").value;
+   var num = parseInt(numStr);
+   if (num < 31) {
+       num += 1;
+       document.getElementById("number").value = num;
+   }
+}
+function minusNum() {
+   var numStr = document.getElementById("number").value;
+   var num = parseInt(numStr);
+   if (num > 8) {
+       num -= 1;
+       document.getElementById("number").value = num;
+   }
+}
+</script>
+
+<button id="minus" onclick="minusNum()">-</button>
+<input id="number" value="12" type="button">
+<button id="plus" onclick="plusNum()">+</button>
+
+<select id="pwdType">
+   <option value="0">纯数字</option>
+   <option value="1">纯字母</option>
+   <option value="2">数字+字母</option>
+   <option value="3">数字+字母+破折号</option>
+   <option value="4">数字+字母+下划线</option>
+</select>
+
+<button onclick="generatePwdWithJudgement()">生成</button></body>
+
+<p id="showPwd">************</p>
+
+</html>
