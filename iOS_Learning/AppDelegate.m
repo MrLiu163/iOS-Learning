@@ -10,6 +10,10 @@
 
 @interface AppDelegate ()
 
+// !!!:Test
+@property (nonatomic, unsafe_unretained) UIBackgroundTaskIdentifier keepTaskId;
+@property (nonatomic, strong) NSTimer *keepTimer;
+
 @end
 
 @implementation AppDelegate
@@ -46,6 +50,17 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    // !!!:Test
+    self.keepTaskId = [application beginBackgroundTaskWithExpirationHandler:^{
+        // 当申请的后台时间用完的时候调用这个block
+        // 此时我们需要结束后台任务，
+        [self endKeepTask];
+    }];
+    [self.keepTimer invalidate];
+    self.keepTimer = nil;
+    self.keepTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(keepTimerTask:) userInfo:nil repeats:YES];
+    
 }
 
 
@@ -56,11 +71,33 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self.keepTimer invalidate];
+    self.keepTimer = nil;
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+// 停止keep timer
+- (void)endKeepTask
+{
+    if (self.keepTimer || self.keepTimer.isValid) {
+        [self.keepTimer invalidate];
+        self.keepTimer = nil;
+        // 结束后台任务
+        [[UIApplication sharedApplication] endBackgroundTask:self.keepTaskId];
+        self.keepTaskId = UIBackgroundTaskInvalid;
+        kLNFLog(@"---->>>>%@", @"停止Timer");
+    }
+}
+// 模拟任务
+- (void)keepTimerTask:(NSTimer *)timer
+{
+    // 系统预留时间
+    NSTimeInterval timeInterval = [[UIApplication sharedApplication] backgroundTimeRemaining];
+    kLNFLog(@"---->>>>距离系统处理时间=%.2f", timeInterval);
 }
 
 

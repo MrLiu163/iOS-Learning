@@ -37,6 +37,15 @@
     [super layoutSubviews];
     
     self.originCenter = self.contentView.center;
+    
+    // 判断是否需要切上边或下边两个圆角
+    if (self.makeUpCornerRadius) {
+        CGFloat cornerRadius = 8.0;
+        [self makeFixedDirectionCornerRadiusWithCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(cornerRadius, cornerRadius)];
+    } else if (self.makeBottomCornerRadius) {
+        CGFloat cornerRadius = 8.0;
+        [self makeFixedDirectionCornerRadiusWithCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(cornerRadius, cornerRadius)];
+    }
 }
 
 - (void)setup

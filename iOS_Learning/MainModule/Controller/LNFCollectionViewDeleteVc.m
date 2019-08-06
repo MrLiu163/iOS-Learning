@@ -30,24 +30,34 @@
 - (void)initUI
 {
     self.navigationItem.title = @"集合视图删除效果";
+    kLNFWeakSelf;
     NSArray<NSArray<NSString *> *> *dataList = @[@[@"", @"", @"", @"", @"", @""], @[@"", @"", @"", @"", @"", @""]];
     NSString *headerIdentifier = @"HeaderID";
 //    NSArray<NSString *> *dataList = @[@""];
     
-    LNFCollectionViewCellConfigureBlock cellConfigureBlock = ^(LNFDeleteStyleCollectionCell *cell, NSObject *item) {
-//        cell.backgroundColor = [UIColor lightGrayColor];
-        cell.contentView.backgroundColor = [UIColor whiteColor];
+    LNFCollectionViewCellForItemAtIndexPathBlock cellForItemAtIndexPathBlock = ^UICollectionViewCell *(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {
+        LNFDeleteStyleCollectionCell *baseParaCell = [collectionView dequeueReusableCellWithReuseIdentifier:kLNFUICollectionViewCellIndetifier forIndexPath:indexPath];
+        baseParaCell.contentView.backgroundColor = [UIColor whiteColor];
+        // 第一个和最后一个分别切圆角
+        NSArray *sectionModelList = weakSelf.dataSourceHelper.items[indexPath.section];
+        if (0 == indexPath.row) {
+            baseParaCell.makeUpCornerRadius = YES;
+        } else if ((sectionModelList.count - 1) == indexPath.row) {
+            baseParaCell.makeBottomCornerRadius = YES;
+        }
+        return baseParaCell;
     };
     LNFCollectionViewDidSelectItemConfigureBlock didSelectBlock = ^(NSIndexPath *indexPath) {
         
     };
     LNFCollectionViewForSupplementaryElementOfKindBlock viewForSupplementaryElementOfKindBlock = ^UICollectionReusableView *(UICollectionView *theCollectionView, NSIndexPath *indexPath, NSString *elementKind) {
         LNFDeleteStyleCollectionHeaderView *headerView = [theCollectionView dequeueReusableSupplementaryViewOfKind:elementKind withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
-        headerView.backgroundColor = [UIColor yellowColor];
+        headerView.backgroundColor = [UIColor whiteColor];
         return headerView;
     };
-    LNFCollectionViewDataSourceHelper *dataSourceHelper = [[LNFCollectionViewDataSourceHelper alloc] initWithItems:dataList cellIdentifier:kLNFUICollectionViewCellIndetifier configureCellBlock:cellConfigureBlock];
+    LNFCollectionViewDataSourceHelper *dataSourceHelper = [[LNFCollectionViewDataSourceHelper alloc] initWithItems:dataList cellIdentifier:kLNFUICollectionViewCellIndetifier configureCellBlock:nil];
     dataSourceHelper.multipleSections = YES;
+    dataSourceHelper.cellForItemAtIndexPathBlock = cellForItemAtIndexPathBlock;
     dataSourceHelper.viewForSupplementaryElementOfKindBlock = viewForSupplementaryElementOfKindBlock;
     self.dataSourceHelper = dataSourceHelper;
     LNFCollectionViewDelegateHelper *delegateHelper = [[LNFCollectionViewDelegateHelper alloc] init];
@@ -64,7 +74,7 @@
 //    layout.minimumLineSpacing = verticalSpace;
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = horizontalSpace;
-    layout.sectionInset = UIEdgeInsetsMake(10, 0, 0, 0);
+    layout.sectionInset = UIEdgeInsetsMake(10, 0, 10, 0);
     layout.headerReferenceSize = CGSizeMake(kLNFScreenWidth, 45);
     [self.view addSubview:learnCollectionView];
 //    learnCollectionView.backgroundColor = [UIColor whiteColor];

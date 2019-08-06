@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) CGSize lnf_size;
 @property (assign, nonatomic) CGPoint lnf_origin;
 
+/** 切固定方向的圆角 */
+- (void)makeFixedDirectionCornerRadiusWithCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;
+
 @end
 
 NS_ASSUME_NONNULL_END

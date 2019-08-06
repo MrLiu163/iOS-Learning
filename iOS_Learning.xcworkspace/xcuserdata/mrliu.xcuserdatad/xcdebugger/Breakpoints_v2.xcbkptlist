@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS_Learning/MainModule/View/LNFDeleteStyleCollectionCell.m"
-            timestampString = "585227205.3395081"
+            timestampString = "586776982.692525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "@implementation LNFDeleteStyleCollectionCell"
             landmarkType = "3">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS_Learning/MainModule/View/LNFDeleteStyleCollectionCell.m"
-            timestampString = "585227205.339582"
+            timestampString = "586776982.692613"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "@implementation LNFDeleteStyleCollectionCell"
             landmarkType = "3">
          </BreakpointContent>
