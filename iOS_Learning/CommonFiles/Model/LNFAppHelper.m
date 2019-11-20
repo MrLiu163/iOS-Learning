@@ -8,6 +8,7 @@
 
 #import "LNFAppHelper.h"
 #import <LocalAuthentication/LocalAuthentication.h> // 指纹验证
+#import <UserNotifications/UserNotifications.h>
 
 @interface LNFAppHelper () <UIAlertViewDelegate>
 
@@ -235,6 +236,37 @@
     } else {
         // Could not evaluate policy; look at authError and present an appropriate message to user
         [self dealWithUserAuthorityByFingerprintError:authError];
+    }
+}
+
+// 判断用户是否开启APNS推送权限
++ (void)getNotificationAuthorizationStatus
+{
+    // 检查手机是否开启推送权限
+    if (@available(iOS 10, *)) {
+        [[UNUserNotificationCenter currentNotificationCenter] getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+            if (UNAuthorizationStatusDenied == settings.authorizationStatus) {
+                
+            } else if (UNAuthorizationStatusAuthorized == settings.authorizationStatus) {
+                [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                    
+                }];
+            } else if (UNAuthorizationStatusNotDetermined == settings.authorizationStatus) {
+                
+            }
+        }];
+    } else if (@available(iOS 8, *)) {
+        UIUserNotificationSettings *notiSetting = [[UIApplication sharedApplication] currentUserNotificationSettings];
+        if (notiSetting.types == UIUserNotificationTypeNone) {
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound categories:nil];
+            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        }
+        
+    } else {
+        UIRemoteNotificationType notiType = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+        if (notiType == UIUserNotificationTypeNone) {
+            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound];
+        }
     }
 }
 

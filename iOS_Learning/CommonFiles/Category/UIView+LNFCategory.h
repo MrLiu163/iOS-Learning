@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 切固定方向的圆角 */
 - (void)makeFixedDirectionCornerRadiusWithCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;
 
+/** 将一个视图转换成图片 */
++ (UIImage *)convertViewToImage:(UIView *)view;
+
 @end
 
 NS_ASSUME_NONNULL_END
