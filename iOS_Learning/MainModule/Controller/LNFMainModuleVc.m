@@ -14,7 +14,6 @@
 #import "LNFLetterToMovieVc.h"
 #import "LNFShakeDiceTestVc.h"
 #import "LNFDeviceAndAppInfoShowVc.h"
-#import "LNFCollectionViewDeleteVc.h"
 #import "LNFCSVWriteVc.h"
 #import "LNFLocalHTMLFileShowVc.h"
 
@@ -36,7 +35,6 @@
 #define kLNFMainItemName_CustomPickerView                   @"自定义DatePicker"
 #define kLNFMainItemName_ShakeDiceTest                      @"摇骰子实验"
 #define kLNFMainItemName_MobileAppInfoShow                  @"本机/App信息展示"
-#define kLNFMainItemName_CollectionViewDelete               @"集合视图删除效果"
 #define kLNFMainItemName_WriteCsvFile                       @"生成csv文件"
 @interface LNFMainModuleVc ()
 
@@ -62,7 +60,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_JSGeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles, kLNFMainItemName_DownloadNetVideo, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView, kLNFMainItemName_ShakeDiceTest, kLNFMainItemName_MobileAppInfoShow, kLNFMainItemName_CollectionViewDelete, kLNFMainItemName_WriteCsvFile];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_JSGeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles, kLNFMainItemName_DownloadNetVideo, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView, kLNFMainItemName_ShakeDiceTest, kLNFMainItemName_MobileAppInfoShow, kLNFMainItemName_WriteCsvFile];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -148,10 +146,6 @@
         LNFDeviceAndAppInfoShowVc *deviceAndAppInfoShowVc = [[LNFDeviceAndAppInfoShowVc alloc] init];
         deviceAndAppInfoShowVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:deviceAndAppInfoShowVc animated:YES];
-    } else if ([itemName isEqualToString:kLNFMainItemName_CollectionViewDelete]) { // 集合视图删除效果
-        LNFCollectionViewDeleteVc *collectionViewDeleteVc = [[LNFCollectionViewDeleteVc alloc] init];
-        collectionViewDeleteVc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:collectionViewDeleteVc animated:YES];
     } else if ([itemName isEqualToString:kLNFMainItemName_WriteCsvFile]) { // 生成csv文件
         LNFCSVWriteVc *writesCsvVc = [[LNFCSVWriteVc alloc] init];
         writesCsvVc.hidesBottomBarWhenPushed = YES;

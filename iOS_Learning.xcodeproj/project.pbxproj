@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		472B7A4821C1244F0035EBEB /* MVHTML.txt in Resources */ = {isa = PBXBuildFile; fileRef = 472B7A4721C1244F0035EBEB /* MVHTML.txt */; };
+		474810F023861F93002F0727 /* adcode_citycode.csv in Resources */ = {isa = PBXBuildFile; fileRef = 474810EF23861F93002F0727 /* adcode_citycode.csv */; };
 		47B2143222195B27002D6399 /* LNFLetterToMovieVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B2143122195B27002D6399 /* LNFLetterToMovieVc.m */; };
 		47B21436221960D0002D6399 /* MovieListResult.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47B21435221960D0002D6399 /* MovieListResult.plist */; };
 		47B4AC7D20E4B9EB005AD68B /* LNFPasswordGenerateVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */; };
@@ -36,7 +37,6 @@
 		47D9EEFE21B7A40A00D37593 /* WEBVideoList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47D9EEFD21B7A40A00D37593 /* WEBVideoList.txt */; };
 		47DFA20B22EADB97002CD9D5 /* LNFCSVWriteVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DFA20A22EADB97002CD9D5 /* LNFCSVWriteVc.m */; };
 		47E16B1D22F19CE0005A59CB /* LNFContextInfoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E16B1C22F19CE0005A59CB /* LNFContextInfoHelper.m */; };
-		47E66C6922A0C9710046DB8C /* LNFCollectionViewDeleteVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E66C6822A0C9710046DB8C /* LNFCollectionViewDeleteVc.m */; };
 		47E66C6C22A0CC470046DB8C /* LNFDeleteStyleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E66C6B22A0CC470046DB8C /* LNFDeleteStyleCollectionCell.m */; };
 		47E87A712189A0FC00ABC355 /* LNFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E87A702189A0FC00ABC355 /* LNFNetworking.m */; };
 		47EE31CD228D488C00DF99EE /* LNFDeviceAndAppInfoShowVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EE31CC228D488C00DF99EE /* LNFDeviceAndAppInfoShowVc.m */; };
@@ -78,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		472B7A4721C1244F0035EBEB /* MVHTML.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MVHTML.txt; sourceTree = "<group>"; };
+		474810EF23861F93002F0727 /* adcode_citycode.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = adcode_citycode.csv; sourceTree = "<group>"; };
 		47B2143022195B27002D6399 /* LNFLetterToMovieVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFLetterToMovieVc.h; sourceTree = "<group>"; };
 		47B2143122195B27002D6399 /* LNFLetterToMovieVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFLetterToMovieVc.m; sourceTree = "<group>"; };
 		47B21435221960D0002D6399 /* MovieListResult.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MovieListResult.plist; sourceTree = "<group>"; };
@@ -126,8 +127,6 @@
 		47DFA20A22EADB97002CD9D5 /* LNFCSVWriteVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFCSVWriteVc.m; sourceTree = "<group>"; };
 		47E16B1B22F19CE0005A59CB /* LNFContextInfoHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFContextInfoHelper.h; sourceTree = "<group>"; };
 		47E16B1C22F19CE0005A59CB /* LNFContextInfoHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFContextInfoHelper.m; sourceTree = "<group>"; };
-		47E66C6722A0C9710046DB8C /* LNFCollectionViewDeleteVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFCollectionViewDeleteVc.h; sourceTree = "<group>"; };
-		47E66C6822A0C9710046DB8C /* LNFCollectionViewDeleteVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFCollectionViewDeleteVc.m; sourceTree = "<group>"; };
 		47E66C6A22A0CC470046DB8C /* LNFDeleteStyleCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFDeleteStyleCollectionCell.h; sourceTree = "<group>"; };
 		47E66C6B22A0CC470046DB8C /* LNFDeleteStyleCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFDeleteStyleCollectionCell.m; sourceTree = "<group>"; };
 		47E87A6F2189A0FC00ABC355 /* LNFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFNetworking.h; sourceTree = "<group>"; };
@@ -207,6 +206,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		474810EC23861E7D002F0727 /* CSVFiles */ = {
+			isa = PBXGroup;
+			children = (
+				474810EF23861F93002F0727 /* adcode_citycode.csv */,
+			);
+			path = CSVFiles;
+			sourceTree = "<group>";
+		};
 		47BED12821A8EA9500B258AB /* TextFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,8 +354,6 @@
 				47CD794422800FB300D6A260 /* LNFShakeDiceTestVc.xib */,
 				47EE31CB228D488C00DF99EE /* LNFDeviceAndAppInfoShowVc.h */,
 				47EE31CC228D488C00DF99EE /* LNFDeviceAndAppInfoShowVc.m */,
-				47E66C6722A0C9710046DB8C /* LNFCollectionViewDeleteVc.h */,
-				47E66C6822A0C9710046DB8C /* LNFCollectionViewDeleteVc.m */,
 				47DFA20922EADB97002CD9D5 /* LNFCSVWriteVc.h */,
 				47DFA20A22EADB97002CD9D5 /* LNFCSVWriteVc.m */,
 				47C5B3F922F2AB4C00182516 /* LNFLocalHTMLFileShowVc.h */,
@@ -380,6 +385,7 @@
 		EA31137A1FD6431700BF1A77 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				474810EC23861E7D002F0727 /* CSVFiles */,
 				47C5B3FC22F2ACF400182516 /* HTMLFiles */,
 				47BED12821A8EA9500B258AB /* TextFiles */,
 				47E87A6E2189A0DC00ABC355 /* Tools */,
@@ -566,6 +572,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				474810F023861F93002F0727 /* adcode_citycode.csv in Resources */,
 				EA3113961FD6499300BF1A77 /* common_search@3x.png in Resources */,
 				47CD794622800FB300D6A260 /* LNFShakeDiceTestVc.xib in Resources */,
 				EA3113921FD6499300BF1A77 /* common_check_choose@3x.png in Resources */,
@@ -677,7 +684,6 @@
 				EA3D3E12213D221A000D7DAC /* UIImage+LNFCategory.m in Sources */,
 				47B94FF32180053A0086499B /* LNFCollectionViewDataSourceHelper.m in Sources */,
 				EA3113B61FD660A900BF1A77 /* UIAlertView+Blocks.m in Sources */,
-				47E66C6922A0C9710046DB8C /* LNFCollectionViewDeleteVc.m in Sources */,
 				47B94FF6218005530086499B /* LNFCollectionViewDelegateHelper.m in Sources */,
 				EA3113AC1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m in Sources */,
 				47CEA61E21B92D9400C7D86C /* LNFExampleMethodHelper.m in Sources */,
