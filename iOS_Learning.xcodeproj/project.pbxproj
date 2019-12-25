@@ -41,6 +41,7 @@
 		47E87A712189A0FC00ABC355 /* LNFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E87A702189A0FC00ABC355 /* LNFNetworking.m */; };
 		47EE31CD228D488C00DF99EE /* LNFDeviceAndAppInfoShowVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EE31CC228D488C00DF99EE /* LNFDeviceAndAppInfoShowVc.m */; };
 		47FAE838221CE3A900E4363A /* StrInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47FAE837221CE3A900E4363A /* StrInfo.plist */; };
+		6FAD478D23B37C11007C3459 /* LNFFootprintBrowseEffectVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAD478C23B37C11007C3459 /* LNFFootprintBrowseEffectVc.m */; };
 		EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31135F1FD63BCB00BF1A77 /* AppDelegate.m */; };
 		EA3113681FD63BCB00BF1A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3113671FD63BCB00BF1A77 /* Assets.xcassets */; };
 		EA31136E1FD63BCB00BF1A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31136D1FD63BCB00BF1A77 /* main.m */; };
@@ -136,6 +137,8 @@
 		47FAE837221CE3A900E4363A /* StrInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StrInfo.plist; sourceTree = "<group>"; };
 		487B35305F8BD77762380BB6 /* Pods-iOS_Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Learning.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Learning/Pods-iOS_Learning.release.xcconfig"; sourceTree = "<group>"; };
 		623EE43C053BAEBC7FC96CF4 /* libPods-iOS_Learning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS_Learning.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FAD478B23B37C11007C3459 /* LNFFootprintBrowseEffectVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFFootprintBrowseEffectVc.h; sourceTree = "<group>"; };
+		6FAD478C23B37C11007C3459 /* LNFFootprintBrowseEffectVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFFootprintBrowseEffectVc.m; sourceTree = "<group>"; };
 		EA31135B1FD63BCB00BF1A77 /* iOS_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA31135E1FD63BCB00BF1A77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EA31135F1FD63BCB00BF1A77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -358,6 +361,8 @@
 				47DFA20A22EADB97002CD9D5 /* LNFCSVWriteVc.m */,
 				47C5B3F922F2AB4C00182516 /* LNFLocalHTMLFileShowVc.h */,
 				47C5B3FA22F2AB4C00182516 /* LNFLocalHTMLFileShowVc.m */,
+				6FAD478B23B37C11007C3459 /* LNFFootprintBrowseEffectVc.h */,
+				6FAD478C23B37C11007C3459 /* LNFFootprintBrowseEffectVc.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -687,6 +692,7 @@
 				47B94FF6218005530086499B /* LNFCollectionViewDelegateHelper.m in Sources */,
 				EA3113AC1FD6507F00BF1A77 /* LNFChangeBaseUrlVc.m in Sources */,
 				47CEA61E21B92D9400C7D86C /* LNFExampleMethodHelper.m in Sources */,
+				6FAD478D23B37C11007C3459 /* LNFFootprintBrowseEffectVc.m in Sources */,
 				47CD794522800FB300D6A260 /* LNFShakeDiceTestVc.m in Sources */,
 				EA3113811FD6433500BF1A77 /* LNFAppHelper.m in Sources */,
 				47E16B1D22F19CE0005A59CB /* LNFContextInfoHelper.m in Sources */,

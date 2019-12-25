@@ -16,6 +16,7 @@
 #import "LNFDeviceAndAppInfoShowVc.h"
 #import "LNFCSVWriteVc.h"
 #import "LNFLocalHTMLFileShowVc.h"
+#import "LNFFootprintBrowseEffectVc.h"
 
 #define kLNFMainItemName_ChangeBaseUrl                      @"Change BaseUrl"
 #define kLNFMainItemName_BezierRoundAnimation               @"贝塞尔切环动画"
@@ -36,6 +37,7 @@
 #define kLNFMainItemName_ShakeDiceTest                      @"摇骰子实验"
 #define kLNFMainItemName_MobileAppInfoShow                  @"本机/App信息展示"
 #define kLNFMainItemName_WriteCsvFile                       @"生成csv文件"
+#define kLNFMainItemName_FootprintBrowseEffect              @"浏览足迹效果"
 @interface LNFMainModuleVc ()
 
 @property (nonatomic, strong) LNFTableViewDataSourceHelper *dataSourceHelper;
@@ -60,7 +62,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_JSGeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles, kLNFMainItemName_DownloadNetVideo, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView, kLNFMainItemName_ShakeDiceTest, kLNFMainItemName_MobileAppInfoShow, kLNFMainItemName_WriteCsvFile];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_JSGeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_LoadingFiles, kLNFMainItemName_DownloadMP3Files, kLNFMainItemName_DownloadMVFiles, kLNFMainItemName_DownloadNetVideo, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView, kLNFMainItemName_ShakeDiceTest, kLNFMainItemName_MobileAppInfoShow, kLNFMainItemName_WriteCsvFile, kLNFMainItemName_FootprintBrowseEffect];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -155,6 +157,10 @@
         jsGeneratePswVc.hidesBottomBarWhenPushed = YES;
         jsGeneratePswVc.htmlFilePath = [[NSBundle mainBundle] pathForResource:@"GeneratePsw" ofType:@"html"];
         [self.navigationController pushViewController:jsGeneratePswVc animated:YES];
+    } else if ([itemName isEqualToString:kLNFMainItemName_FootprintBrowseEffect]) { // 浏览足迹效果
+        LNFFootprintBrowseEffectVc *footprintBrowseEffectVc = [[LNFFootprintBrowseEffectVc alloc] init];
+        footprintBrowseEffectVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:footprintBrowseEffectVc animated:YES];
     }
 }
 
