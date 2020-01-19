@@ -149,4 +149,19 @@
     return image;
 }
 
+/** 添加头部刷新控件 */
++ (void)addMJRefreshHeaderWithScrollView:(UIScrollView *)scrollView refreshBlock:(MJRefreshComponentRefreshingBlock)refreshBlock
+{
+    MJRefreshNormalHeader *refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:refreshBlock];
+    refreshHeader.lastUpdatedTimeLabel.hidden = YES;
+    scrollView.mj_header = refreshHeader;
+}
+
+/** 添加底部刷新控件 */
++ (void)addMJRefreshFooterWithScrollView:(UIScrollView *)scrollView refreshBlock:(MJRefreshComponentRefreshingBlock)refreshBlock
+{
+    MJRefreshAutoNormalFooter *refreshFooter = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:refreshBlock];
+    scrollView.mj_footer = refreshFooter;
+}
+
 @end

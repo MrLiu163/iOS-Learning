@@ -34,6 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** 将一个视图转换成图片 */
 + (UIImage *)convertViewToImage:(UIView *)view;
 
+/** 添加头部刷新控件 */
++ (void)addMJRefreshHeaderWithScrollView:(UIScrollView *)scrollView refreshBlock:(MJRefreshComponentRefreshingBlock)refreshBlock;
+
+/** 添加底部刷新控件 */
++ (void)addMJRefreshFooterWithScrollView:(UIScrollView *)scrollView refreshBlock:(MJRefreshComponentRefreshingBlock)refreshBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -41,6 +41,7 @@
 		47E87A712189A0FC00ABC355 /* LNFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E87A702189A0FC00ABC355 /* LNFNetworking.m */; };
 		47EE31CD228D488C00DF99EE /* LNFDeviceAndAppInfoShowVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EE31CC228D488C00DF99EE /* LNFDeviceAndAppInfoShowVc.m */; };
 		47FAE838221CE3A900E4363A /* StrInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47FAE837221CE3A900E4363A /* StrInfo.plist */; };
+		6F87DFEA23D3F73800B1CFA2 /* LNFProductBrowseFootprintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87DFE923D3F73800B1CFA2 /* LNFProductBrowseFootprintView.m */; };
 		6FAD478D23B37C11007C3459 /* LNFFootprintBrowseEffectVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAD478C23B37C11007C3459 /* LNFFootprintBrowseEffectVc.m */; };
 		EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA31135F1FD63BCB00BF1A77 /* AppDelegate.m */; };
 		EA3113681FD63BCB00BF1A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3113671FD63BCB00BF1A77 /* Assets.xcassets */; };
@@ -137,6 +138,8 @@
 		47FAE837221CE3A900E4363A /* StrInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StrInfo.plist; sourceTree = "<group>"; };
 		487B35305F8BD77762380BB6 /* Pods-iOS_Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Learning.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Learning/Pods-iOS_Learning.release.xcconfig"; sourceTree = "<group>"; };
 		623EE43C053BAEBC7FC96CF4 /* libPods-iOS_Learning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS_Learning.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F87DFE823D3F73800B1CFA2 /* LNFProductBrowseFootprintView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFProductBrowseFootprintView.h; sourceTree = "<group>"; };
+		6F87DFE923D3F73800B1CFA2 /* LNFProductBrowseFootprintView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFProductBrowseFootprintView.m; sourceTree = "<group>"; };
 		6FAD478B23B37C11007C3459 /* LNFFootprintBrowseEffectVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFFootprintBrowseEffectVc.h; sourceTree = "<group>"; };
 		6FAD478C23B37C11007C3459 /* LNFFootprintBrowseEffectVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFFootprintBrowseEffectVc.m; sourceTree = "<group>"; };
 		EA31135B1FD63BCB00BF1A77 /* iOS_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,6 +264,8 @@
 				47E66C6B22A0CC470046DB8C /* LNFDeleteStyleCollectionCell.m */,
 				47C17A0822E1C4BA00AA85E1 /* LNFDeleteStyleCollectionHeaderView.h */,
 				47C17A0922E1C4BA00AA85E1 /* LNFDeleteStyleCollectionHeaderView.m */,
+				6F87DFE823D3F73800B1CFA2 /* LNFProductBrowseFootprintView.h */,
+				6F87DFE923D3F73800B1CFA2 /* LNFProductBrowseFootprintView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -668,6 +673,7 @@
 				EA3D3E09213D1BA3000D7DAC /* LNFPhotoLibraryPhotoShowAndSelectVc.m in Sources */,
 				47E66C6C22A0CC470046DB8C /* LNFDeleteStyleCollectionCell.m in Sources */,
 				47D461FD223C900A009DEF90 /* LNFUIAdapter.m in Sources */,
+				6F87DFEA23D3F73800B1CFA2 /* LNFProductBrowseFootprintView.m in Sources */,
 				EA3113841FD647C300BF1A77 /* LNFTabBarController.m in Sources */,
 				47EE31CD228D488C00DF99EE /* LNFDeviceAndAppInfoShowVc.m in Sources */,
 				EA3113B51FD660A900BF1A77 /* LNFButtonItem.m in Sources */,
