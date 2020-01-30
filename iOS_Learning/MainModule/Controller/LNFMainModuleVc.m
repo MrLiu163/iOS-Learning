@@ -26,7 +26,6 @@
 #define kLNFMainItemName_PhotoLibraryMultiSelect            @"相册图片多选效果"
 #define kLNFMainItemName_SemaphoreRequestQueue              @"信号量控制请求队列"
 #define kLNFMainItemName_StringEncodeDecode                 @"字符UTF编码解码"
-#define kLNFMainItemName_DivideHTMLLabel                    @"分解HTML标签"
 #define kLNFMainItemName_DirectDownloadVideo                @"直接下载视频"
 #define kLNFMainItemName_LetterToMovie                      @"致电影的一封情书"
 #define kLNFMainItemName_CustomPickerView                   @"自定义DatePicker"
@@ -58,7 +57,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_JSGeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DivideHTMLLabel, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView, kLNFMainItemName_ShakeDiceTest, kLNFMainItemName_MobileAppInfoShow, kLNFMainItemName_WriteCsvFile, kLNFMainItemName_FootprintBrowseEffect];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_JSGeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView, kLNFMainItemName_ShakeDiceTest, kLNFMainItemName_MobileAppInfoShow, kLNFMainItemName_WriteCsvFile, kLNFMainItemName_FootprintBrowseEffect];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -114,12 +113,8 @@
         LNFLoadPictureBySemaphoreVc *semaphoreRequestVc = [[LNFLoadPictureBySemaphoreVc alloc] init];
         semaphoreRequestVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:semaphoreRequestVc animated:YES];
-    } else if ([itemName isEqualToString:kLNFMainItemName_StringEncodeDecode]) {
-//        [LNFExampleMethodHelper stringUTF8EncodeAndDecode];
-        [LNFExampleMethodHelper regexUseForGetHTMLInfo];
-    } else if ([itemName isEqualToString:kLNFMainItemName_DivideHTMLLabel]) {
-        [LNFDownloadManager divideYouVideoHTMLContentIntoTextFiles];
-//        [LNFDownloadManager divideWangMVHTMLContentIntoTextFiles];
+    } else if ([itemName isEqualToString:kLNFMainItemName_StringEncodeDecode]) { // UTF8字符串加码解码
+        [LNFExampleMethodHelper stringUTF8EncodeAndDecode];
     } else if ([itemName isEqualToString:kLNFMainItemName_DirectDownloadVideo]) { // 直接下载批量视频
         [LNFDownloadManager downloadVideoFilesDirectFromTextURLs];
     } else if ([itemName isEqualToString:kLNFMainItemName_LetterToMovie]) {

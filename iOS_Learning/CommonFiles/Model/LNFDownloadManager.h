@@ -13,12 +13,6 @@
 /** 直接下载可用链接视频 */
 + (void)downloadVideoFilesDirectFromTextURLs;
 
-/** 分解VideoHTML获取标签内容到Text */
-+ (void)divideYouVideoHTMLContentIntoTextFiles;
-
-/** 分解MVHTML获取标签内容到Text */
-+ (void)divideWangMVHTMLContentIntoTextFiles;
-
 /** 保存视频到相册 */
 + (void)saveVideoToPhotosAlbumWithFilePath:(NSURL *)filePath;
 
