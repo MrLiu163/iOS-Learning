@@ -164,4 +164,34 @@
     scrollView.mj_footer = refreshFooter;
 }
 
+/** 遍历图片的每个像素 */
++  (void)searchEveryPixelForImage:(UIImage *)image everyPixelForBlock:(EveryPixelForBlock)everyPixelForBlock {
+    CGImageRef imgref = image.CGImage;
+    // 获取图片宽高（总像素数）
+    size_t width = CGImageGetWidth(imgref);
+    size_t height = CGImageGetHeight(imgref);
+    // 每行像素的总字节数
+    size_t bytesPerRow = CGImageGetBytesPerRow(imgref);
+    // 每个像素多少位(RGBA每个8位，所以这里是32位) ps:（一个字节8位）
+    size_t bitsPerPixel = CGImageGetBitsPerPixel(imgref);
+    CGDataProviderRef dataProvider = CGImageGetDataProvider(imgref);
+    CFDataRef data = CGDataProviderCopyData(dataProvider);
+    UInt8 *buffer = (UInt8*)CFDataGetBytePtr(data);// 图片数据的首地址
+    // 遍历
+    for (int j = 0; j < height; j++) {
+        for (int i = 0; i < width; i++) {
+            // 每个像素的首地址
+            UInt8 *pt = buffer + j * bytesPerRow + i * (bitsPerPixel/8);
+            UInt8 red = *pt;
+            UInt8 green = *(pt+1); // 指针向后移动一个字节
+            UInt8 blue = *(pt+2);
+            UInt8 alpha = *(pt+3);
+            if (everyPixelForBlock) {
+                everyPixelForBlock(red, green, blue, alpha, j, i);
+            }
+            NSLog(@"red:%d, green:%d,blue:%d,alpha:%d",red,green,blue,alpha);
+        }
+    }
+}
+
 @end

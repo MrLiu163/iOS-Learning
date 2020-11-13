@@ -17,6 +17,7 @@
 #import "LNFCSVWriteVc.h"
 #import "LNFLocalHTMLFileShowVc.h"
 #import "LNFFootprintBrowseEffectVc.h"
+#import "LNFPixelToColorRGBVc.h"
 
 #define kLNFMainItemName_ChangeBaseUrl                      @"Change BaseUrl"
 #define kLNFMainItemName_BezierRoundAnimation               @"贝塞尔切环动画"
@@ -33,6 +34,8 @@
 #define kLNFMainItemName_MobileAppInfoShow                  @"本机/App信息展示"
 #define kLNFMainItemName_WriteCsvFile                       @"生成csv文件"
 #define kLNFMainItemName_FootprintBrowseEffect              @"浏览足迹效果"
+#define kLNFMainItemName_ImagePixelToColorRGB               @"图片像素转RGB"
+
 @interface LNFMainModuleVc ()
 
 @property (nonatomic, strong) LNFTableViewDataSourceHelper *dataSourceHelper;
@@ -57,7 +60,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
-    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_JSGeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView, kLNFMainItemName_ShakeDiceTest, kLNFMainItemName_MobileAppInfoShow, kLNFMainItemName_WriteCsvFile, kLNFMainItemName_FootprintBrowseEffect];
+    NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_JSGeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView, kLNFMainItemName_ShakeDiceTest, kLNFMainItemName_MobileAppInfoShow, kLNFMainItemName_WriteCsvFile, kLNFMainItemName_FootprintBrowseEffect, kLNFMainItemName_ImagePixelToColorRGB];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -144,6 +147,10 @@
         LNFFootprintBrowseEffectVc *footprintBrowseEffectVc = [[LNFFootprintBrowseEffectVc alloc] init];
         footprintBrowseEffectVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:footprintBrowseEffectVc animated:YES];
+    } else if ([itemName isEqualToString:kLNFMainItemName_ImagePixelToColorRGB]) { // 图片像素转RGB
+        LNFPixelToColorRGBVc *pixelToColorRGBVc = [[LNFPixelToColorRGBVc alloc] init];
+        pixelToColorRGBVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:pixelToColorRGBVc animated:YES];
     }
 }
 

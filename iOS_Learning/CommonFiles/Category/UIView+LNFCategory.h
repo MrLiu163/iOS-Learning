@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^EveryPixelForBlock)(UInt8 R, UInt8 G, UInt8 B, UInt8 A, int H, int W);
 @interface UIView (LNFCategory)
 
 /** 切圆角 */
@@ -39,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 添加底部刷新控件 */
 + (void)addMJRefreshFooterWithScrollView:(UIScrollView *)scrollView refreshBlock:(MJRefreshComponentRefreshingBlock)refreshBlock;
+
+/** 遍历图片的每个像素 */
++  (void)searchEveryPixelForImage:(UIImage *)image everyPixelForBlock:(EveryPixelForBlock)everyPixelForBlock;
 
 @end
 
