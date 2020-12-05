@@ -265,8 +265,8 @@
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if (!self.hadClearSeperatorLine) { // 去掉上线间隔线
-        [[pickerView.subviews objectAtIndex:1] setHidden:TRUE];
-        [[pickerView.subviews objectAtIndex:2] setHidden:TRUE];
+//        [[pickerView.subviews objectAtIndex:1] setHidden:TRUE];
+//        [[pickerView.subviews objectAtIndex:2] setHidden:TRUE];
         self.hadClearSeperatorLine = YES;
     }
     return self.pickerDataList[component][row];

@@ -34,7 +34,7 @@
     NSString *decodeInitStr_2 = [decodeInitStr_3 stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *decodeInitStr_1 = [decodeInitStr_2 stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    kLNFLog(@"origin:%@\ndecode:%@", originalStr);
+    NSLog(@"-----------");
 }
 
 @end
