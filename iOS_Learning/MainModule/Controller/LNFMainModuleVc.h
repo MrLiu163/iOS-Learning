@@ -6,8 +6,8 @@
 //  Copyright © 2017 interstellar. All rights reserved.
 //
 
-#import "LNFBaseVc.h"
+#import "LNFBaseEntrySelectVc.h"
 
-@interface LNFMainModuleVc : LNFBaseVc
+@interface LNFMainModuleVc : LNFBaseEntrySelectVc
 
 @end

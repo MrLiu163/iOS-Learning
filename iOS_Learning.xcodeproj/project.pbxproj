@@ -21,6 +21,7 @@
 		47C17A0A22E1C4BA00AA85E1 /* LNFDeleteStyleCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C17A0922E1C4BA00AA85E1 /* LNFDeleteStyleCollectionHeaderView.m */; };
 		47C5B3FB22F2AB4C00182516 /* LNFLocalHTMLFileShowVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C5B3FA22F2AB4C00182516 /* LNFLocalHTMLFileShowVc.m */; };
 		47C5B3FE22F2AD0300182516 /* GeneratePsw.html in Resources */ = {isa = PBXBuildFile; fileRef = 47C5B3FD22F2AD0300182516 /* GeneratePsw.html */; };
+		47CCC5A2257DBBC6003EC4E9 /* LNFBaseEntrySelectVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CCC5A1257DBBC6003EC4E9 /* LNFBaseEntrySelectVc.m */; };
 		47CD794522800FB300D6A260 /* LNFShakeDiceTestVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CD794322800FB300D6A260 /* LNFShakeDiceTestVc.m */; };
 		47CD794622800FB300D6A260 /* LNFShakeDiceTestVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47CD794422800FB300D6A260 /* LNFShakeDiceTestVc.xib */; };
 		47CEA61B21B8FD3900C7D86C /* LNFCommonMethodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CEA61A21B8FD3900C7D86C /* LNFCommonMethodHelper.m */; };
@@ -102,6 +103,8 @@
 		47C5B3F922F2AB4C00182516 /* LNFLocalHTMLFileShowVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFLocalHTMLFileShowVc.h; sourceTree = "<group>"; };
 		47C5B3FA22F2AB4C00182516 /* LNFLocalHTMLFileShowVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFLocalHTMLFileShowVc.m; sourceTree = "<group>"; };
 		47C5B3FD22F2AD0300182516 /* GeneratePsw.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GeneratePsw.html; sourceTree = "<group>"; };
+		47CCC5A0257DBBC6003EC4E9 /* LNFBaseEntrySelectVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFBaseEntrySelectVc.h; sourceTree = "<group>"; };
+		47CCC5A1257DBBC6003EC4E9 /* LNFBaseEntrySelectVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFBaseEntrySelectVc.m; sourceTree = "<group>"; };
 		47CD794222800FB300D6A260 /* LNFShakeDiceTestVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFShakeDiceTestVc.h; sourceTree = "<group>"; };
 		47CD794322800FB300D6A260 /* LNFShakeDiceTestVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFShakeDiceTestVc.m; sourceTree = "<group>"; };
 		47CD794422800FB300D6A260 /* LNFShakeDiceTestVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LNFShakeDiceTestVc.xib; sourceTree = "<group>"; };
@@ -435,6 +438,8 @@
 				EA3113861FD6483E00BF1A77 /* LNFBaseVc.m */,
 				EA31139E1FD64A9300BF1A77 /* LNFNavigationVc.h */,
 				EA31139F1FD64A9300BF1A77 /* LNFNavigationVc.m */,
+				47CCC5A0257DBBC6003EC4E9 /* LNFBaseEntrySelectVc.h */,
+				47CCC5A1257DBBC6003EC4E9 /* LNFBaseEntrySelectVc.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -700,6 +705,7 @@
 				EA31136E1FD63BCB00BF1A77 /* main.m in Sources */,
 				47D4620B223C97EE009DEF90 /* LNFPhotoShowCollectionViewCell.m in Sources */,
 				47CEA61B21B8FD3900C7D86C /* LNFCommonMethodHelper.m in Sources */,
+				47CCC5A2257DBBC6003EC4E9 /* LNFBaseEntrySelectVc.m in Sources */,
 				47D461F7223C8E93009DEF90 /* LNFPictureLoadShowCollectionCell.m in Sources */,
 				EAA1B58521A84F0A000B6218 /* LNFDownloadManager.m in Sources */,
 				EA3D3E06213D1B16000D7DAC /* LNFAssetRequestImageHelpModel.m in Sources */,

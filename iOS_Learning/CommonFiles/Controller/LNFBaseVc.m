@@ -117,6 +117,17 @@
     }
 }
 
+// 防止KVC异常值
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    // NSLog(@"key = %@值不存在",key);
+}
+ 
+//取值的key不存在
+- (id)valueForUndefinedKey:(NSString *)key {
+    // NSLog(@"key = %@值不存在",key);
+    return nil;
+}
+
 #pragma mark - 重写dealloc
 - (void)dealloc
 {

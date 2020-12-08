@@ -67,7 +67,8 @@
 #define kLNFSystemFont26 [UIFont systemFontOfSize:26]
 
 // 常用UI颜色
-#define kLNFThemeBlueColor  kLNFColorWithHex(0x0095fc)
+#define kLNFThemeBlueColor           kLNFColorWithHex(0x0095fc)
+#define kLNFThemeOrangeColor         kLNFColorWithHex(0xff6900)
 #define kLNFSeperatorLineColor       kLNFColorWithHex(0xdadada) // 分割线颜色 边框颜色
 #define kLNFContentViewBorderColor   kLNFColorWithHex(0xdadada) //边框颜色
 #define kLNFSeperatorViewColor       kLNFColorWithHex(0xf4f4f4) // 间隔View颜色

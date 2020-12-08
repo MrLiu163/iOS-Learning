@@ -54,12 +54,43 @@
     [self initUI];
 }
 
+- (void)initEntries
+{
+    self.naviItemTitle = @"开发调试";
+    NSMutableArray<NSString *> *entryTitles = [NSMutableArray array];
+    NSMutableArray<NSString *> *entryClasses = [NSMutableArray array];
+    NSMutableArray<NSDictionary *> *entryKVCInfos = [NSMutableArray array];
+    
+    [entryTitles addObject:@"生成密码"];
+    [entryClasses addObject:@"LNFPasswordGenerateVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"JS生成密码"];
+    [entryClasses addObject:@"LNFLocalHTMLFileShowVc"];
+    NSString *htmlPathStr = [[NSBundle mainBundle] pathForResource:@"GeneratePsw" ofType:@"html"];
+    [entryKVCInfos addObject:@{@"htmlFilePath" : htmlPathStr ? htmlPathStr : @"", @"66666" : @"safadsfaf"}];
+    
+    [entryTitles addObject:@"Change BaseUrl"];
+    [entryClasses addObject:@"LNFChangeBaseUrlVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"相册图片多选效果"];
+    [entryClasses addObject:@"LNFPhotoLibraryPhotoAlbumListVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    
+    self.entryTitles = entryTitles;
+    self.entryClasses = entryClasses;
+    self.entryKVCInfos = entryKVCInfos;
+}
+
 - (void)initUI
 {
     self.navigationItem.title = @"效果";
     self.view.backgroundColor = [UIColor whiteColor];
     kLNFWeakSelf;
     
+    /*
     NSArray *itemList = @[kLNFMainItemName_GeneratePassword, kLNFMainItemName_JSGeneratePassword, kLNFMainItemName_ChangeBaseUrl, kLNFMainItemName_CheckAuthorityByFingerprint, kLNFMainItemName_PhotoLibraryMultiSelect, kLNFMainItemName_SemaphoreRequestQueue, kLNFMainItemName_StringEncodeDecode, kLNFMainItemName_DirectDownloadVideo, kLNFMainItemName_LetterToMovie, kLNFMainItemName_CustomPickerView, kLNFMainItemName_ShakeDiceTest, kLNFMainItemName_MobileAppInfoShow, kLNFMainItemName_WriteCsvFile, kLNFMainItemName_FootprintBrowseEffect, kLNFMainItemName_ImagePixelToColorRGB];
     TableViewCellConfigureBlock cellConfigureBlock = ^(UITableViewCell *cell, NSString *item) {
         cell.textLabel.text = item;
@@ -88,6 +119,7 @@
         make.left.and.right.and.top.and.bottom.mas_equalTo(self.view);
     }];
     self.mainItemTable = mainItemTable;
+    */
 }
 #pragma mark - Private Method
 - (void)didSelectCellWithItemName:(NSString *)itemName
