@@ -74,9 +74,46 @@
     [entryClasses addObject:@"LNFChangeBaseUrlVc"];
     [entryKVCInfos addObject:@{}];
     
-    [entryTitles addObject:@"相册图片多选效果"];
-    [entryClasses addObject:@"LNFPhotoLibraryPhotoAlbumListVc"];
+    [entryTitles addObject:@"信号量控制加载图片"];
+    [entryClasses addObject:@"LNFLoadPictureBySemaphoreVc"];
     [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"致电影的一封情书"];
+    [entryClasses addObject:@"LNFLetterToMovieVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"摇骰子实验"];
+    [entryClasses addObject:@"LNFShakeDiceTestVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"本机/App信息展示"];
+    [entryClasses addObject:@"LNFDeviceAndAppInfoShowVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"生成csv文件"];
+    [entryClasses addObject:@"LNFCSVWriteVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"浏览足迹效果"];
+    [entryClasses addObject:@"LNFFootprintBrowseEffectVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"图片像素转RGB"];
+    [entryClasses addObject:@"LNFPixelToColorRGBVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"ContactsKit"];
+    [entryClasses addObject:@"LNFContactsFrameworkVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"ContactsUIKit"];
+    [entryClasses addObject:@"LNFContactsUIFrameworkVc"];
+    [entryKVCInfos addObject:@{}];
+    
+    [entryTitles addObject:@"其他效果示例"];
+    [entryClasses addObject:@"LNFOtherExampleShowVc"];
+    [entryKVCInfos addObject:@{}];
+    
     
     
     self.entryTitles = entryTitles;

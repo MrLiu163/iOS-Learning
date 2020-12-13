@@ -30,7 +30,7 @@
     UINavigationBar *navBar = self.navigationBar;
     navBar.translucent = NO;
     // 设置导航栏颜色
-    [navBar setBarTintColor:kLNFThemeOrangeColor];
+    [navBar setBarTintColor:kLNFThemeBlueColor];
     // 设置导航栏上item颜色
     [navBar setTintColor:[UIColor whiteColor]];
     

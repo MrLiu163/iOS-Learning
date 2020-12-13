@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		472B7A4821C1244F0035EBEB /* MVHTML.txt in Resources */ = {isa = PBXBuildFile; fileRef = 472B7A4721C1244F0035EBEB /* MVHTML.txt */; };
 		474810F023861F93002F0727 /* adcode_citycode.csv in Resources */ = {isa = PBXBuildFile; fileRef = 474810EF23861F93002F0727 /* adcode_citycode.csv */; };
+		47AFC8D4258469FD00FE402D /* LNFOtherExampleShowVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AFC8D3258469FD00FE402D /* LNFOtherExampleShowVc.m */; };
+		47AFC8DC25848FC000FE402D /* LNFContactsFrameworkVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AFC8DB25848FC000FE402D /* LNFContactsFrameworkVc.m */; };
 		47B2143222195B27002D6399 /* LNFLetterToMovieVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B2143122195B27002D6399 /* LNFLetterToMovieVc.m */; };
 		47B21436221960D0002D6399 /* MovieListResult.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47B21435221960D0002D6399 /* MovieListResult.plist */; };
 		47B4AC7D20E4B9EB005AD68B /* LNFPasswordGenerateVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */; };
 		47B4AC7E20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */; };
+		47B78CC125863A86006A5C29 /* LNFContactsUIFrameworkVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B78CC025863A86006A5C29 /* LNFContactsUIFrameworkVc.m */; };
 		47B94FF0218001090086499B /* LNFLoadPictureBySemaphoreVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FEF218001090086499B /* LNFLoadPictureBySemaphoreVc.m */; };
 		47B94FF32180053A0086499B /* LNFCollectionViewDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FF22180053A0086499B /* LNFCollectionViewDataSourceHelper.m */; };
 		47B94FF6218005530086499B /* LNFCollectionViewDelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B94FF5218005530086499B /* LNFCollectionViewDelegateHelper.m */; };
@@ -84,12 +87,18 @@
 /* Begin PBXFileReference section */
 		472B7A4721C1244F0035EBEB /* MVHTML.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MVHTML.txt; sourceTree = "<group>"; };
 		474810EF23861F93002F0727 /* adcode_citycode.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = adcode_citycode.csv; sourceTree = "<group>"; };
+		47AFC8D2258469FD00FE402D /* LNFOtherExampleShowVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFOtherExampleShowVc.h; sourceTree = "<group>"; };
+		47AFC8D3258469FD00FE402D /* LNFOtherExampleShowVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFOtherExampleShowVc.m; sourceTree = "<group>"; };
+		47AFC8DA25848FC000FE402D /* LNFContactsFrameworkVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFContactsFrameworkVc.h; sourceTree = "<group>"; };
+		47AFC8DB25848FC000FE402D /* LNFContactsFrameworkVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFContactsFrameworkVc.m; sourceTree = "<group>"; };
 		47B2143022195B27002D6399 /* LNFLetterToMovieVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFLetterToMovieVc.h; sourceTree = "<group>"; };
 		47B2143122195B27002D6399 /* LNFLetterToMovieVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFLetterToMovieVc.m; sourceTree = "<group>"; };
 		47B21435221960D0002D6399 /* MovieListResult.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MovieListResult.plist; sourceTree = "<group>"; };
 		47B4AC7A20E4B9EB005AD68B /* LNFPasswordGenerateVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFPasswordGenerateVc.h; sourceTree = "<group>"; };
 		47B4AC7B20E4B9EB005AD68B /* LNFPasswordGenerateVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFPasswordGenerateVc.m; sourceTree = "<group>"; };
 		47B4AC7C20E4B9EB005AD68B /* LNFPasswordGenerateVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LNFPasswordGenerateVc.xib; sourceTree = "<group>"; };
+		47B78CBF25863A86006A5C29 /* LNFContactsUIFrameworkVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFContactsUIFrameworkVc.h; sourceTree = "<group>"; };
+		47B78CC025863A86006A5C29 /* LNFContactsUIFrameworkVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFContactsUIFrameworkVc.m; sourceTree = "<group>"; };
 		47B94FEE218001090086499B /* LNFLoadPictureBySemaphoreVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFLoadPictureBySemaphoreVc.h; sourceTree = "<group>"; };
 		47B94FEF218001090086499B /* LNFLoadPictureBySemaphoreVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNFLoadPictureBySemaphoreVc.m; sourceTree = "<group>"; };
 		47B94FF12180053A0086499B /* LNFCollectionViewDataSourceHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNFCollectionViewDataSourceHelper.h; sourceTree = "<group>"; };
@@ -386,6 +395,12 @@
 				6FAD478C23B37C11007C3459 /* LNFFootprintBrowseEffectVc.m */,
 				47E5340B255E7F90009965A3 /* LNFPixelToColorRGBVc.h */,
 				47E5340C255E7F90009965A3 /* LNFPixelToColorRGBVc.m */,
+				47AFC8D2258469FD00FE402D /* LNFOtherExampleShowVc.h */,
+				47AFC8D3258469FD00FE402D /* LNFOtherExampleShowVc.m */,
+				47AFC8DA25848FC000FE402D /* LNFContactsFrameworkVc.h */,
+				47AFC8DB25848FC000FE402D /* LNFContactsFrameworkVc.m */,
+				47B78CBF25863A86006A5C29 /* LNFContactsUIFrameworkVc.h */,
+				47B78CC025863A86006A5C29 /* LNFContactsUIFrameworkVc.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -690,6 +705,7 @@
 				EA3113C01FD6637800BF1A77 /* LNFTableViewDelegateHelper.m in Sources */,
 				47D46203223C9617009DEF90 /* LNFCommonHelper.m in Sources */,
 				47B94FF0218001090086499B /* LNFLoadPictureBySemaphoreVc.m in Sources */,
+				47B78CC125863A86006A5C29 /* LNFContactsUIFrameworkVc.m in Sources */,
 				EA3113C61FD6684600BF1A77 /* LNFIdCardNumberModel.m in Sources */,
 				47DFA20B22EADB97002CD9D5 /* LNFCSVWriteVc.m in Sources */,
 				EA3D3E09213D1BA3000D7DAC /* LNFPhotoLibraryPhotoShowAndSelectVc.m in Sources */,
@@ -711,6 +727,8 @@
 				EA3D3E06213D1B16000D7DAC /* LNFAssetRequestImageHelpModel.m in Sources */,
 				EA3D3E03213D1AD2000D7DAC /* LNFFetchPhotoAlbumListHelpModel.m in Sources */,
 				47D4620C223C97EE009DEF90 /* LNFZoomPictureView.m in Sources */,
+				47AFC8DC25848FC000FE402D /* LNFContactsFrameworkVc.m in Sources */,
+				47AFC8D4258469FD00FE402D /* LNFOtherExampleShowVc.m in Sources */,
 				EA3113601FD63BCB00BF1A77 /* AppDelegate.m in Sources */,
 				47B2143222195B27002D6399 /* LNFLetterToMovieVc.m in Sources */,
 				EA3D3DFD213D19CD000D7DAC /* LNFPhotoLibraryPhotoAlbumListVc.m in Sources */,

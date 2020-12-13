@@ -35,7 +35,7 @@
 //    [self readCSVExample];
     
     // 创建csv文件，使用字符串直接写入write
-    [self creatCSVExampleByStringWrite];
+//    [self creatCSVExampleByStringWrite];
 }
 
 // 请求数据，然后生成csv文件

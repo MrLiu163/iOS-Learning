@@ -32,6 +32,9 @@
     // 电池条颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    // 状态栏网络请求标识
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
     // 设置根视图
     [LNFAppHelper setRootViewController];
     
